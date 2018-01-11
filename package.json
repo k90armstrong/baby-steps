@@ -1,0 +1,23 @@
+{
+  "name": "baby-steps",
+  "version": "1.0.0",
+  "description": "An app to track a childs life events",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k90armstrong/baby-steps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k90armstrong/baby-steps/issues"
+  },
+  "homepage": "https://github.com/k90armstrong/baby-steps#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
