@@ -61,6 +61,5 @@ module.exports = function(passport, user) {
                 done(user.errors, null);
             }
         });
-        
     });
 }
