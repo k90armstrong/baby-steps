@@ -26,6 +26,29 @@ app.get('/api/logout', function(req, res){
     });
 });
 
+app.post('/api/event', function(req, res) {
+
+});
+
+app.delete('/api/event', function(req, res) {
+    
+});
+
+app.put('/api/event', function(req, res) {
+    
+});
+
+
+
+
+
+
+
+
+
+
+// STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
+
 
   // Get rotue for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
