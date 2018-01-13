@@ -11,15 +11,16 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
-
   // GET route for getting all of the posts
-app.post('/api/signup', passport.authenticate('local-signup', {
-        successRedirect: '/home',
-        failureRedirect: '/'
-    }
-));
+  app.post(
+    "/api/signup",
+    passport.authenticate("local-signup", {
+      successRedirect: "/home",
+      failureRedirect: "/"
+    })
+  );
 
-  // Get rotue for retrieving a single post
+  // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
     // 2. Add a join here to include the Author who wrote the Post
     db.Post.findOne({
@@ -52,14 +53,12 @@ app.post('/api/signup', passport.authenticate('local-signup', {
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 };
