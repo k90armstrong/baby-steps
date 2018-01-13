@@ -12,12 +12,20 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app, passport) {
 
-  // GET route for getting all of the posts
+// post route to signup a user
 app.post('/api/signup', passport.authenticate('local-signup', {
         successRedirect: '/home',
         failureRedirect: '/'
     }
 ));
+
+// route to log a user out
+app.get('/api/logout', function(req, res){
+    req.session.destroy(function(err) {
+        res.redirect('/');
+    });
+});
+
 
   // Get rotue for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
@@ -62,4 +70,13 @@ app.post('/api/signup', passport.authenticate('local-signup', {
         res.json(dbPost);
       });
   });
+
+  // middleware for logging in
+  function isLoggedIn(req, res, next) {
+       if (req.isAuthenticated())
+           return next();    
+       res.redirect('/signin');
+   }
 };
+
+
