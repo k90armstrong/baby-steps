@@ -10,7 +10,7 @@ create the folowing file config/config.json and place this in the file:
 {
   "development": {
     "username": "root",
-    "password": "JSFpsDr143",
+    "password": "password",
     "database": "baby_steps",
     "host": "localhost",
     "dialect": "mysql"
