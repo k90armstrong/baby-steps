@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "k90armstrong",
-    "password": "12345678",
+    "username": "root",
+    "password": "JSFpsDr143",
     "database": "baby_steps",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
