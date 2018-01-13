@@ -6,7 +6,8 @@ An app to track a childs life events
 
 ## sequelize
 create the folowing file config/config.json and place this in the file: 
-``` {
+``` 
+{
   "development": {
     "username": "root",
     "password": "JSFpsDr143",
