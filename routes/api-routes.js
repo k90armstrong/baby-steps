@@ -11,6 +11,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
+<<<<<<< HEAD
   // GET route for getting all of the posts
   app.post(
     "/api/signup",
@@ -21,6 +22,25 @@ module.exports = function(app, passport) {
   );
 
   // Get route for retrieving a single post
+=======
+
+// post route to signup a user
+app.post('/api/signup', passport.authenticate('local-signup', {
+        successRedirect: '/home',
+        failureRedirect: '/'
+    }
+));
+
+// route to log a user out
+app.get('/api/logout', function(req, res){
+    req.session.destroy(function(err) {
+        res.redirect('/');
+    });
+});
+
+
+  // Get rotue for retrieving a single post
+>>>>>>> dece04673412f854f3de80b11ecf01da37059d62
   app.get("/api/posts/:id", function(req, res) {
     // 2. Add a join here to include the Author who wrote the Post
     db.Post.findOne({
@@ -61,4 +81,13 @@ module.exports = function(app, passport) {
       res.json(dbPost);
     });
   });
+
+  // middleware for logging in
+  function isLoggedIn(req, res, next) {
+       if (req.isAuthenticated())
+           return next();    
+       res.redirect('/signin');
+   }
 };
+
+
