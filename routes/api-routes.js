@@ -26,6 +26,29 @@ app.get('/api/logout', function(req, res){
     });
 });
 
+app.post('/api/event', function(req, res) {
+
+});
+
+app.delete('/api/event', function(req, res) {
+    
+});
+
+app.put('/api/event', function(req, res) {
+    
+});
+
+
+
+
+
+
+
+
+
+
+// STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
+
 
   // Get rotue for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
@@ -60,15 +83,13 @@ app.get('/api/logout', function(req, res){
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // middleware for logging in
