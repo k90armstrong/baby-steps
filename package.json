@@ -18,6 +18,14 @@
   },
   "homepage": "https://github.com/k90armstrong/baby-steps#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.31.1",
+    "session": "^0.1.0"
   }
 }
