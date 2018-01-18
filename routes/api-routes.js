@@ -13,9 +13,13 @@ var db = require("../models");
 module.exports = function(app, passport) {
 
 // post route to signup a user
+// app.post('/api/signup', function(req, res){
+//   console.log('success');
+//   res.json({message: 'YES IT WORKED'});
+// });
 app.post('/api/signup', passport.authenticate('local-signup', {
-        successRedirect: '/home',
-        failureRedirect: '/'
+        successRedirect: '/home?success',
+        failureRedirect: '/home?fail'
     }
 ));
 
