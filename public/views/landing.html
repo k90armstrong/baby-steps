@@ -17,9 +17,11 @@
 <body>
    
 
-
+<span>
+    <img class="logo" src="../img/babysteps.png" alt="Smiley face">
+</span>
     <!-- log in -->
-    <form action="action_page.php">
+    <form action="/api/login" class="longinContainer">
            
            <div class="container">
               <label><b>Username</b></label>
@@ -52,7 +54,7 @@
     <!-- The Modal (contains the Sign Up form) -->
     <div id="id01" class="modal">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">X</span>
-      <form class="modal-content" action="/action_page.php">
+      <form class="modal-content" action="/api/signup" method="post">
         <div class="container wider">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
