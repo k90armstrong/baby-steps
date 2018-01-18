@@ -10,13 +10,18 @@ var db = require("../models");
 
 // Routes
 // =============================================================
+<<<<<<< HEAD
 module.exports = function (app, passport) {
 
+=======
+module.exports = function(app, passport) {
+>>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
   // post route to signup a user
   // app.post('/api/signup', function(req, res){
   //   console.log('success');
   //   res.json({message: 'YES IT WORKED'});
   // });
+<<<<<<< HEAD
   app.post('/api/signup', passport.authenticate('local-signup', {
     successRedirect: '/home?success',
     failureRedirect: '/home?fail'
@@ -124,10 +129,37 @@ app.get("/api/events/:id", function(req, res) {
 };
 
 
+=======
+  app.post(
+    "/api/signup",
+    passport.authenticate("local-signup", {
+      successRedirect: "/home?success",
+      failureRedirect: "/home?fail"
+    })
+  );
 
+  // app.post("/api/signup", function(req, res) {
+  //   console.log("Hi from The POST");
+  // });
 
+  // route to log a user out
+  app.get("/api/logout", function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
+  });
+>>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
 
+  app.post("/api/event", function(req, res) {});
 
+  app.delete("/api/event", function(req, res) {});
+
+<<<<<<< HEAD
+=======
+  app.put("/api/event", function(req, res) {});
+>>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
+
+  // STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
 
 
 
@@ -180,6 +212,7 @@ app.get("/api/events/:id", function(req, res) {
 
   // middleware for logging in
   function isLoggedIn(req, res, next) {
+<<<<<<< HEAD
     if (req.isAuthenticated())
       return next();
     res.redirect('/signin');
@@ -187,3 +220,9 @@ app.get("/api/events/:id", function(req, res) {
 // }
 
 
+=======
+    if (req.isAuthenticated()) return next();
+    res.redirect("/signin");
+  }
+};
+>>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a

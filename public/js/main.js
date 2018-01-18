@@ -1,3 +1,5 @@
+// this is for the timeline=========
+
 jQuery(document).ready(function($){
 	var timelineBlocks = $('.cd-timeline-block'),
 		offset = 0.8;
