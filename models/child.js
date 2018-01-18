@@ -27,12 +27,16 @@ module.exports = function(sequelize, Sequelize) {
         },
         stateborn:{
             type: Sequelize.STRING
-        }
+        },
         category:{
             type:Sequelize.STRING
-        }
+        },
         birthdate:{
             type:Sequelize.DATE
+        },
+        image:{
+            type:Sequelize.STRING,
+            allowNull: false
         }
     });
 

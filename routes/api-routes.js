@@ -14,29 +14,70 @@ module.exports = function(app, passport) {
 
 // post route to signup a user
 app.post('/api/signup', passport.authenticate('local-signup', {
-        successRedirect: '/home',
-        failureRedirect: '/'
-    }
+  successRedirect: '/home',
+  failureRedirect: '/'
+}
 ));
 
 // route to log a user out
 app.get('/api/logout', function(req, res){
-    req.session.destroy(function(err) {
-        res.redirect('/');
-    });
+  req.session.destroy(function(err) {
+    res.redirect('/');
+  });
 });
 
 app.post('/api/event', function(req, res) {
 
+  console.log("baby_steps",request.body);
+  db.event.create({
+    title: request.body.title,
+    description: request.body.description,
+    story: request.body.story,
+    date: request.body.date,
+    image: 
+
+  }).then(function(results){
+    res.end();
+  });
 });
+
+// DELETE route for deleting event
 
 app.delete('/api/event', function(req, res) {
-    
+  db.event.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbevent){
+    res.json(dbevent);
+  });
+
+
 });
 
+// PUT route for updating event/////
+
 app.put('/api/event', function(req, res) {
+  db.event.update({
+    title: request.body.title,
+    description: request.body.description,
+    story: request.body.story,
+    date: request.body.date,
+    image:
+
+
+  }, {
     
-});
+      where: {
+        id: req.body.id
+      }
+  
+    }).then(function(dbevent){
+      res.json(dbevent);
+    });
+    
+  });
+
 
 
 
@@ -94,10 +135,10 @@ app.put('/api/event', function(req, res) {
 
   // middleware for logging in
   function isLoggedIn(req, res, next) {
-       if (req.isAuthenticated())
-           return next();    
-       res.redirect('/signin');
-   }
+   if (req.isAuthenticated())
+     return next();    
+   res.redirect('/signin');
+ }
 };
 
 
