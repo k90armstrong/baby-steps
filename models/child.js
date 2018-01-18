@@ -13,11 +13,10 @@ module.exports = function(sequelize, Sequelize) {
         lastname: {
             type: Sequelize.STRING,
             notEmpty: true
-        }
+        },
         weight: {
             type: Sequelize.DECIMAL,
             allowNull: false
-
         },
         height: {
             type:Sequelize.DECIMAL
@@ -27,23 +26,22 @@ module.exports = function(sequelize, Sequelize) {
         },
         stateborn:{
             type: Sequelize.STRING
-        }
+        },
         category:{
             type:Sequelize.STRING
-        }
+        },
         birthdate:{
             type:Sequelize.DATE
         }
     });
 
     Child.associate = function(models) {
-    // Associating Event with Posts
-    // When an Event is deleted, also delete any associated Posts
-    Child.hasMany(models.Event, {
-      onDelete: "cascade"
-    });
-  };
-     
+        // Associating Event with Posts
+        // When an Event is deleted, also delete any associated Posts
+        Child.hasMany(models.event, {
+        onDelete: "cascade"
+        });
+    };
 
     return Child;
 }   
