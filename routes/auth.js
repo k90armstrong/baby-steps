@@ -17,7 +17,7 @@ app.post('/signup', passport.authenticate('local-signup',
 app.get('/dashboard',isLoggedIn, authController.dashboard);
 
 
-app.get('/logout',authController.logout);
+app.post('/logout',authController.logout);
 
 
 app.post('/login', passport.authenticate('local-signin',  
