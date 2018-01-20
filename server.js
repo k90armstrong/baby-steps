@@ -1,17 +1,25 @@
 // Require Modules
 var passport   = require('passport');
 var session    = require('express-session');
-var bodyParser = require('body-parser');
 var express    = require('express');
 var sequelize  = require('sequelize');
+var fileUpload = require('express-fileupload');
+
+
 var env = require('dotenv').load();
 // Create express app
 var app = express();
+var bodyParser = require('body-parser');
 var PORT = 3000;
 
-//For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
+// Requiring our models for syncing
+var db = require("./models");
+ 
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
 // For Passport 
@@ -21,10 +29,11 @@ app.use(passport.session()); // persistent login sessions
 
 // Static directory
 app.use(express.static("public"));
+app.use(fileUpload());
 
-// Requiring our models for syncing
-var db = require("./models");
 
+// Routes
+// =============================================================
 // routes
 var authRoute = require('./routes/auth.js')(app,passport);
 require("./routes/api-routes.js")(app, passport);
