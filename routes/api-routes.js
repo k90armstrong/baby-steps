@@ -39,7 +39,7 @@ module.exports = function(app, passport) {
 
     var query = {};
     if (req.query.child_id) {
-      query.AuthorId = req.query.child_id;
+      query.ChildId = req.query.child_id;
     }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
@@ -68,29 +68,31 @@ module.exports = function(app, passport) {
 
   app.post('/api/events', function (req, res) {
     console.log(req.body);
-  console.log(req.body.title);
-  console.log(req.files.sampleFile);
-  let sampleFile = req.files.sampleFile;
-  var img_name=sampleFile.name;
-  var img_loc_on_server = 'public/images/upload_images/'+img_name;
-    // Use the mv() method to place the file somewhere on your server
-      sampleFile.mv(img_loc_on_server, function(err) {
-          if (err)
-              return console.log(err);
-          console.log('File uploaded!');
-      });
+    console.log(req.body.title);
+    console.log(req.files.sampleFile);
+    let sampleFile = req.files.sampleFile;
+    var img_name=sampleFile.name;
+    var childId = req.body.childId;
+    var img_loc_on_server = 'public/images/upload_images/'+img_name;
+      // Use the mv() method to place the file somewhere on your server
+        sampleFile.mv(img_loc_on_server, function(err) {
+            if (err)
+                return console.log(err);
+            console.log('File uploaded!');
+        });
 // var sql = "INSERT INTO `children`(`image`) VALUES ('" + img_loc_on_server + "')";
 
 
     // console.log("users_image", req.body);
-    db.Event.create({
+    var event = {
       title: req.body.title,
       description: req.body.description,
       story: req.body.story,
-       date: req.body.date,
-       imageurl:img_loc_on_server 
-
-    }).then(function (dbEvent) {
+      date: req.body.date,
+      imageurl: img_loc_on_server,
+      ChildId: userId
+    }
+    db.Event.create(event).then(function (dbEvent) {
       res.json(dbEvent);
     });
   });
@@ -149,6 +151,9 @@ app.get("/api/childs", function(req, res) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
     db.Child.findAll({
+      where: {
+        userId: req.user.id
+      },
       include: [db.Event]
     }).then(function(dbChild) {
       res.json(dbChild);
@@ -174,6 +179,7 @@ app.post("/api/childs", function(req, res) {
   // console.log(req.files.sampleFile);
   var sampleFile = req.files.sampleFile;
   var img_name=sampleFile.name;
+  var userId = req.user.id;
   var img_loc_on_server = 'public/images/upload_images/'+img_name;
     // Use the mv() method to place the file somewhere on your server
       sampleFile.mv(img_loc_on_server, function(err) {
@@ -195,8 +201,8 @@ app.post("/api/childs", function(req, res) {
       height:req.body.height,
       hospitalborn:req.body.hospitalborn,
       gender:req.body.gender,
-      birthdate:req.body.birthdate
-
+      birthdate:req.body.birthdate,
+      userId: userId
     }).then(function(dbChild) {
       res.json(dbChild);
     });
