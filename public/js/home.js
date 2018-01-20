@@ -14,7 +14,7 @@ $(document).ready(function() {
     $.ajax({
       url: "/api/childs",
       success: function(result) {
-        console.log('result');
+        console.log(result);
         // clear the container
         $('.childButtonContainer').empty();
         // loop through and add all of the children buttons
