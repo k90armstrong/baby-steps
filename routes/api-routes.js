@@ -12,6 +12,10 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app, passport) {
 
+  app.get('/api/username', function(req, res) {
+    console.log(req.user.username);
+    res.json({username: req.user.username});
+  });
 // post route to signup a user
 // app.post('/api/signup', function(req, res){
 //   console.log('success');
