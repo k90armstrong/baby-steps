@@ -26,3 +26,16 @@ body {
 .addChild {
     margin-top: 20%;
 }
+
+/* LOT OUT */
+.logoutLblPos{
+
+    position:fixed;
+    right:10px;
+    top:5px;
+ }
+
+ .userName {
+	margin-right: 82px;
+    margin-top: 8px;
+ }
