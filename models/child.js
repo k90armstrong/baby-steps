@@ -28,8 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             notEmpty: true
         },
         weight: {
-            type: DataTypes.DECIMAL,
-            allowNull: false
+            type: DataTypes.DECIMAL
         },
         height: {
             type: DataTypes.DECIMAL
@@ -47,12 +46,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE
         },
         image:{
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         }
     });
-    {
-
+    
     Child.associate = function(models) {
         // Associating Event with Posts
         // When an Event is deleted, also delete any associated Posts
@@ -60,7 +57,6 @@ module.exports = function(sequelize, DataTypes) {
             onDelete: "cascade"
         });
     };
-};
 
 
 return Child;
