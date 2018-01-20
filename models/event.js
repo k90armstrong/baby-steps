@@ -1,45 +1,64 @@
-module.exports = function(sequelize, Sequelize) {
+
+// var Sequelize      = require('sequelize');
+// var sequelize = new Sequelize('db', 'admin', 'pwd', {
+//     host: 'localhost',
+//     port: 3306,
+//     dialect: 'mysql'
+// });
+
+
+
+
+module.exports = function(sequelize, DataTypes) {
     
-    var Event = sequelize.define('event', {
+    var Event = sequelize.define('Event', {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
         title:{
-        	type: Sequelize.STRING
+        	type: DataTypes.STRING
+        
 
         },
         imageurl:{
-        	type:Sequelize.STRING
+        	type: DataTypes.STRING
+        
 
         },
         description:{
-        	type:Sequelize.STRING
+        	type: DataTypes.STRING
+        
 
         },
         story:{
-        	type:Sequelize.STRING
+        	type: DataTypes.STRING
+        
 
         },
         date:{
-        	type:Sequelize.DATE
+        	type: DataTypes.DATE
+        
 
-        },
+        }
         
 
 
     });
+    
+
     Event.associate = function(models) {
     // We're saying that a child should belong to an Event
     // A child can't be created without an Event due to the foreign key constraint
-    Event.belongsTo(models.child, {
+    Event.belongsTo(models.Child, {
       foreignKey: {
         allowNull: false
       }
     });
   };
+
     
 
     return Event;
-}   
+};   
