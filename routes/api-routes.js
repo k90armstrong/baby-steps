@@ -11,7 +11,6 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
-<<<<<<< HEAD
 
 // post route to signup a user
 // app.post('/api/signup', function(req, res){
@@ -35,8 +34,6 @@ app.put('/api/event', function(req, res) {
 
 
 
-
-=======
   // post route to signup a user
   // app.post('/api/signup', function(req, res){
   //   console.log('success');
@@ -49,6 +46,17 @@ app.put('/api/event', function(req, res) {
       failureRedirect: "/home?fail"
     })
   );
+  // app.post("/api/signup", function(req, res) {
+  //   console.log("Hi from The POST");
+  // });
+
+  // route to log a user out
+  app.get("/api/logout", function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
+  });
+
 
   // app.post("/api/signup", function(req, res) {
   //   console.log("Hi from The POST");
@@ -60,13 +68,6 @@ app.put('/api/event', function(req, res) {
       res.redirect("/");
     });
   });
->>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
-
-  app.post("/api/event", function(req, res) {});
-
-  app.delete("/api/event", function(req, res) {});
-
-  app.put("/api/event", function(req, res) {});
 
   // STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
 
