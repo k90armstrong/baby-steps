@@ -27,8 +27,12 @@ module.exports = function(app, passport) {
   });
 
   app.get('/api/username', function(req, res) {
-    console.log(req.user.username);
-    res.json({username: req.user.username});
+    console.log(req.user);
+    if (req.user) {
+      res.json({user: req.user});
+    } else {
+      res.json({message: 'No user logged in'});
+    }
   });
   // 
   app.get("/api/events", function(req, res) {
