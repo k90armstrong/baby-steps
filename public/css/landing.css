@@ -49,6 +49,7 @@ button:hover {
 /* Add padding to container elements */
 .container {
   padding: 16px;
+  width: 91% !important;
  
 }
 
@@ -103,17 +104,10 @@ hr {
   display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
-    
-  }
-}
 
 .wider {
     width: 1149px !important;
-}
+} */
 
 /* logo */
 
@@ -187,15 +181,5 @@ span.psw {
     padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-        display: block;
-        float: none;
-    }
-    .cancelbtn {
-        width: 100%;
-    }
-}
 
 /* ================================================================= */
