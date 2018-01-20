@@ -11,6 +11,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
+<<<<<<< HEAD
 
 // post route to signup a user
 // app.post('/api/signup', function(req, res){
@@ -35,11 +36,39 @@ app.put('/api/event', function(req, res) {
 
 
 
+=======
+  // post route to signup a user
+  // app.post('/api/signup', function(req, res){
+  //   console.log('success');
+  //   res.json({message: 'YES IT WORKED'});
+  // });
+  app.post(
+    "/api/signup",
+    passport.authenticate("local-signup", {
+      successRedirect: "/home?success",
+      failureRedirect: "/home?fail"
+    })
+  );
 
+  // app.post("/api/signup", function(req, res) {
+  //   console.log("Hi from The POST");
+  // });
 
+  // route to log a user out
+  app.get("/api/logout", function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
+  });
+>>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
 
-// STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
+  app.post("/api/event", function(req, res) {});
 
+  app.delete("/api/event", function(req, res) {});
+
+  app.put("/api/event", function(req, res) {});
+
+  // STUFF BELOW HERE IS ONLY FOR AN EXAMPLE OF HOW TO DO STUFF
 
   // Get rotue for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
@@ -85,10 +114,7 @@ app.put('/api/event', function(req, res) {
 
   // middleware for logging in
   function isLoggedIn(req, res, next) {
-       if (req.isAuthenticated())
-           return next();    
-       res.redirect('/signin');
-   }
+    if (req.isAuthenticated()) return next();
+    res.redirect("/signin");
+  }
 };
-
-
