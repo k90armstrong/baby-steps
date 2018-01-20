@@ -61,4 +61,4 @@ typings/
 
 config/
 
-public/images/uploaded_images/*
+public/images/upload_images/
