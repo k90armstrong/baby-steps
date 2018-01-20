@@ -17,19 +17,6 @@ module.exports = function(app, passport) {
 //   console.log('success');
 //   res.json({message: 'YES IT WORKED'});
 // });
-app.post('/api/signup', passport.authenticate('local-signup', {
-        successRedirect: '/home?success',
-        failureRedirect: '/home?fail'
-    }
-));
-
-// route to log a user out
-app.get('/api/logout', function(req, res){
-    req.session.destroy(function(err) {
-        res.redirect('/');
-    });
-});
-
 app.post('/api/event', function(req, res) {
 
 });
