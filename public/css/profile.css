@@ -4,7 +4,16 @@
 
 .addEvent {
     float: right;
-}
+    right: 10px;
+    /* margin-right: 132px; */
+    z-index: 1000;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 10px;
+    margin-right: 130px;
+  }
 
 .smallPic {
     float: left;
