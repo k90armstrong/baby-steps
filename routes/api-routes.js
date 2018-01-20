@@ -10,34 +10,25 @@ var db = require("../models");
 var Child = require("../models/child.js");
 
 
-// Routes
-// // =============================================================
-// // <<<<<<< HEAD
-// module.exports = function (app, passport) {
-
-// =======
-//module.exports = function(app, passport) {
-// >>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
-  // post route to signup a user
-  // app.post('/api/signup', function(req, res){
-  //   console.log('success');
-  //   res.json({message: 'YES IT WORKED'});
-  // });
-// <<<<<<< HEAD
 module.exports = function(app, passport) {
 // POST route for saving a new post
 
-app.post('/api/signup', passport.authenticate('local-signup', {
-  successRedirect: '/home?success',
-  failureRedirect: '/home?fail'
-}
-));
+  app.post('/api/signup', passport.authenticate('local-signup', {
+    successRedirect: '/home?success',
+    failureRedirect: '/home?fail'
+  }
+  ));
 
   // route to log a user out
   app.get('/api/logout', function (req, res) {
     req.session.destroy(function (err) {
       res.redirect('/');
     });
+  });
+
+  app.get('/api/username', function(req, res) {
+    console.log(req.user.username);
+    res.json({username: req.user.username});
   });
   // 
   app.get("/api/events", function(req, res) {
@@ -147,36 +138,6 @@ app.post('/api/signup', passport.authenticate('local-signup', {
 });
 
 
-
-// =======
-app.post(
-  "/api/signup",
-  passport.authenticate("local-signup", {
-    successRedirect: "/home?success",
-    failureRedirect: "/home?fail"
-  })
-  );
-
-  // app.post("/api/signup", function(req, res) {
-  //   console.log("Hi from The POST");
-  // });
-
-  // route to log a user out
-  app.get("/api/logout", function(req, res) {
-    req.session.destroy(function(err) {
-      res.redirect("/");
-    });
-  });
-// >>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
-
-// app.post("/api/event", function(req, res) {});
-
-// app.delete("/api/event", function(req, res) {});
-
-// <<<<<<< HEAD
-// =======
-// app.put("/api/event", function(req, res) {});
-
 //*************** api routes for children**********************************
 
 app.get("/api/childs", function(req, res) {
@@ -285,44 +246,13 @@ app.post("/api/childs", function(req, res) {
     });
 
   });
-  
 
 
-
-
-
-
+   // middleware for logging in
+  function isLoggedIn(req, res, next){
+    if (req.isAuthenticated())
+      return next();
+    res.redirect('/signin');
+  }
 
 };
-// >>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
-
-  
-
-//  
-//   // PUT route for updating posts
-//   app.put("/api/posts", function (req, res) {
-//     db.Post.update(req.body, {
-//       where: {
-//         id: req.body.id
-//       }
-//     }).then(function (dbPost) {
-//       res.json(dbPost);
-//     });
-//   });
-// };
-  // middleware for logging in
-  function isLoggedIn(req, res, next){
-// <<<<<<< HEAD
-if (req.isAuthenticated())
-  return next();
-res.redirect('/signin');
-}
-
-
-// =======
-
-
-
-
-
-// >>>>>>> ac184bd5ccf1fd25bbaae67e7e99da16d098321a
