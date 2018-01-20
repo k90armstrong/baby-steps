@@ -60,3 +60,5 @@ typings/
 .env
 
 config/
+
+public/images/uploaded_images/*
