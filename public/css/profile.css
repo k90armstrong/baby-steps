@@ -22,6 +22,12 @@
     
 }
 
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
 
 /* time line */
 /* -------------------------------- 
@@ -508,3 +514,28 @@ html * {
     }
   }
   
+
+  .userName {
+    margin-right: 82px;
+      margin-top: 8px;
+   }
+
+
+   /* stupid dino sizing */
+
+
+@media screen and (max-width: 991px) {
+  .smallPic {
+    width: 27%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+	.smallPic {
+    width: 27%;
+  }
+
+}
+

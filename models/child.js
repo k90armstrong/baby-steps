@@ -56,6 +56,11 @@ module.exports = function(sequelize, DataTypes) {
         Child.hasMany(models.Event, {
             onDelete: "cascade"
         });
+        Child.belongsTo(models.user, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
     };
 
 
