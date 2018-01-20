@@ -171,8 +171,8 @@ app.get("/api/childs/:id", function(req, res) {
 app.post("/api/childs", function(req, res) {
   console.log(req.body);
   console.log(req.body.firstname);
-  console.log(req.files.sampleFile);
-  let sampleFile = req.files.sampleFile;
+  // console.log(req.files.sampleFile);
+  var sampleFile = req.files.sampleFile;
   var img_name=sampleFile.name;
   var img_loc_on_server = 'public/images/upload_images/'+img_name;
     // Use the mv() method to place the file somewhere on your server
@@ -194,7 +194,7 @@ app.post("/api/childs", function(req, res) {
       weight:req.body.weight,
       height:req.body.height,
       hospitalborn:req.body.hospitalborn,
-      category:req.body.category,
+      gender:req.body.gender,
       birthdate:req.body.birthdate
 
     }).then(function(dbChild) {
@@ -238,7 +238,7 @@ app.post("/api/childs", function(req, res) {
       weight:req.body.weight,
       height:req.body.height,
       hospitalborn:req.body.hospitalborn,
-      category:req.body.category,
+      gender:req.body.gender,
       birthdate:req.body.birthdate
     }, {
       where: {

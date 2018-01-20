@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
         stateborn:{
             type: DataTypes.STRING
         },
-        category:{
+        gender:{
             type: DataTypes.STRING
         },
         birthdate:{
