@@ -520,10 +520,22 @@ html * {
       margin-top: 8px;
    }
 
-  /* LOT OUT */
-/* .logoutLblPos{
 
-  position:fixed;
-  right:10px;
-  top:5px;
-} */
+   /* stupid dino sizing */
+
+
+@media screen and (max-width: 991px) {
+  .smallPic {
+    width: 27%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+	.smallPic {
+    width: 27%;
+  }
+
+}
+
