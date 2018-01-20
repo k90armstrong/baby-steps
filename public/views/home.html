@@ -23,6 +23,7 @@
 
         <div class="container">
 
+        
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-default big-btn btn-info btn-lg addChild" data-toggle="modal" data-target="#myModal">+ ADD CHILD</button>
 
@@ -36,13 +37,32 @@
                         </div>
                         <div class="modal-body">
 
-                            <form class="form-horizontal" action="/api/signup">
+                            <!-- <form class="form-horizontal" action="/api/childs">
+ -->
+                            <form id='uploadForm' method='post' action='/api/childs' enctype="multipart/form-data">
+        <input type='file' name='sampleFile'>
+        <!-- <input type='submit'> -->
+
 
                                 <label for="fname">First Name</label>
                                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
                                 <label for="lname">Last Name</label>
                                 <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                                <label for="weight">Weight</label>
+                                <input type="text" id="weight" name="weight" placeholder="weight of the baby..">
+
+                                <label for="height">Height</label>
+                                <input type="text" id="height" name="height" placeholder="height of the baby..">
+
+                                <label for="hspname">Hospitalborn</label>
+                                <input type="text" id="hspname" name="hospitalborn" placeholder="weight of the baby..">
+                                <label for="statename">State Born</label>
+                                <input type="text" id="statename" name="stateborn" placeholder="stateborn..">
+
+                                <label for="birthdate">Birthdate</label>
+                                <input type="date" id="birth" name="birthdate" placeholder="birthdate of the baby..">
 
                                 <label for="gender">Gender</label>
                                 <select id="gender" name="gender">
@@ -51,11 +71,12 @@
                                     <option value="Female">Female</option>
                                 </select>
 
-                                <label for="subject">About child- additional information</label>
+                                <!-- <label for="">About child- additional information</label>
                                 <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+ -->
+                                <input type="submit">
 
-                                <input type="submit" value="Submit">
-
+                           <!--  </form> -->
                             </form>
 
                         </div>
