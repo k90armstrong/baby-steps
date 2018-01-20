@@ -1,8 +1,10 @@
-console.log("it works");
 
-$.ajax({
-  url: "/api/username",
-  success: function(result) {
-    console.log(result);
-  }
+$(document).ready(function() {
+  $.ajax({
+    url: "/api/username",
+    success: function(result) {
+      $('.userName').text(result.user.email);
+    }
+  });
 });
+
