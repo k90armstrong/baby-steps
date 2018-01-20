@@ -519,3 +519,23 @@ html * {
     margin-right: 82px;
       margin-top: 8px;
    }
+
+
+   /* stupid dino sizing */
+
+
+@media screen and (max-width: 991px) {
+  .smallPic {
+    width: 27%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+	.smallPic {
+    width: 27%;
+  }
+
+}
+
