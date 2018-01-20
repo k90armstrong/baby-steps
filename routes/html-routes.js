@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
 
     // users homepage route loads home.html
     app.get("/home", isLoggedIn, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/views/home.html"));
+        res.sendFile(path.join(__dirname, "../public/views/home.html"));
     });
 
     // childs profile page profile.html
@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
 
     // middleware for logging in
     function isLoggedIn(req, res, next) {
-        if (!req.isAuthenticated()) {
+        if (req.isAuthenticated()) {
             return next();    
         }
         res.redirect('/');
