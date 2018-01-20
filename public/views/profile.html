@@ -1,184 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../css/profile.css" type="text/css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../css/profile.css" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="../css/profile.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="../css/reset.css">
+	<!-- CSS reset -->
+	<link rel="stylesheet" href="../css/profile.css">
+	<!-- Resource style -->
 
-	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-        <!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		
+	<script src="../js/modernizr.js"></script>
+	<!-- Modernizr -->
 
-          
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 </head>
+
 <body>
 
-<!-- this needs to be a banner with a pic, go back, about inside of it. -->
+	<!-- this needs to be a banner with a pic, go back, about inside of it. -->
 
-<div class="container">
-    <div class="jumbotron" style="height: 451px">
-            <button type="button" class="btn button">GO HOME</button>
-          <h1>KIDS NAME</h1> 
-        <span>
-            <img src="../img/picHere.png" class="img-thumbnail col-md-3" alt="Cinque Terre">
-            <img src="../img/Dinosaur.png" class="smallPic col-md-2" alt="">
+	<div class="container">
+		<div class="jumbotron" style="height: 451px">
+			<a href="home.html">
+				<button type="button" class="btn button">GO HOME</button>
+			</a>
+			<h1>KIDS NAME</h1>
+			<span>
+				<img src="../img/picHere.png" class="img-thumbnail col-md-3" alt="Cinque Terre">
+				<img src="../img/Dinosaur.png" class="smallPic col-md-2" alt="">
 
-            <p class="col-md-7">Bootstrap is the most popular HTML, CSS, and JS framework for developing
-              responsive, mobile-first projects on the web.</p> 
-        </span>
-    </div>
-</div>
-
-<!-- this is the add event button -->
-
-<div class="wrapper">
-		<div class="container">
-		
-			<!-- Trigger the modal with a button -->
-			<button id="add-event-btn" type="button" class="btn btn-default big-btn btn-info btn-lg addEvent" data-toggle="modal" data-target="#myModal">+ ADD EVENT</button>
-			
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
-				</div>
-				<div class="modal-body">
-					
-						<form class="form-horizontal" action="action_page.php">
-	
-							<label for="fname">First Name</label>
-							<input type="text" id="fname" name="firstname" placeholder="Your name..">
-						
-							<label for="lname">Last Name</label>
-							<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-						
-							<label for="gender">Gender</label>
-							<select id="gender" name="gender">
-								<option value=" "> </option> 
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-							</select>
-						
-							<label for="subject">About child- additional information</label>
-							<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-						
-							<input type="submit" value="Submit">
-						
-						  </form>
-				  
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-				</div>
-			</div>
-			</div>
+				<p class="col-md-7">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+			</span>
 		</div>
-		
 	</div>
 
-<!-- this is the time line -->
-<div class="container">
+	<!-- this is the add event button -->
+
+	<div class="wrapper">
+		<div class="container">
+
+			<!-- Trigger the modal with a button -->
+			<button id="add-event-btn" type="button" class="btn btn-default big-btn btn-info btn-lg addEvent" data-toggle="modal" data-target="#myModal">+ ADD EVENT</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Modal Header</h4>
+						</div>
+						<div class="modal-body">
+
+							<form class="form-horizontal" action="action_page.php">
+
+								<label for="fname">First Name</label>
+								<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+								<label for="lname">Last Name</label>
+								<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+								<label for="gender">Gender</label>
+								<select id="gender" name="gender">
+									<option value=" "> </option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+
+								<label for="subject">About child- additional information</label>
+								<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+								<input type="submit" value="Submit">
+
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- this is the time line -->
+	<div class="container">
 
 		<section id="cd-timeline" class="cd-container">
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-picture">
 					<img src="img/cd-icon-picture.svg" alt="Picture">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Title of section 1</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat
+						iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
 					<a href="#0" class="cd-read-more">Read more</a>
 					<span class="cd-date">Jan 14</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-	
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-movie">
 					<img src="img/cd-icon-movie.svg" alt="Movie">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Title of section 2</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat
+						iure tempora laudantium ipsa ad debitis unde?</p>
 					<a href="#0" class="cd-read-more">Read more</a>
 					<span class="cd-date">Jan 18</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-	
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-picture">
 					<img src="img/cd-icon-picture.svg" alt="Picture">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Title of section 3</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores
+						voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum
+						quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos
+						repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet
+						eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
 					<a href="#0" class="cd-read-more">Read more</a>
 					<span class="cd-date">Jan 24</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-	
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-location">
 					<img src="img/cd-icon-location.svg" alt="Location">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Title of section 4</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat
+						iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
 					<a href="#0" class="cd-read-more">Read more</a>
 					<span class="cd-date">Feb 14</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-	
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-location">
 					<img src="img/cd-icon-location.svg" alt="Location">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Title of section 5</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
 					<a href="#0" class="cd-read-more">Read more</a>
 					<span class="cd-date">Feb 18</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-	
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+
 			<div class="cd-timeline-block">
 				<div class="cd-timeline-img cd-movie">
 					<img src="img/cd-icon-movie.svg" alt="Movie">
-				</div> <!-- cd-timeline-img -->
-	
+				</div>
+				<!-- cd-timeline-img -->
+
 				<div class="cd-timeline-content">
 					<h2>Final Section</h2>
 					<p>This is the content of the last section</p>
 					<span class="cd-date">Feb 26</span>
-				</div> <!-- cd-timeline-content -->
-			</div> <!-- cd-timeline-block -->
-		</section> <!-- cd-timeline -->
+				</div>
+				<!-- cd-timeline-content -->
+			</div>
+			<!-- cd-timeline-block -->
+		</section>
+		<!-- cd-timeline -->
 	</div>
 
-</div>
+	</div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../js/profile.js"></script>
-<script src="../js/main.js"></script> <!-- Resource jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="../js/profile.js"></script>
+	<script src="../js/main.js"></script>
+	<!-- Resource jQuery -->
 
 
 </body>
+
 </html>
