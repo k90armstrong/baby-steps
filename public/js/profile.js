@@ -17,7 +17,7 @@ $(document).ready(function() {
         $('#babyImage').attr('src', '../' + result.image);
         $('#weight').text(result.weight);
         $('#length').text(result.height);
-        $('#birtday').text(result.birthdate);
+        $('#birthday').text(result.birthdate);
         console.log(result);
       }
     });
