@@ -1,4 +1,37 @@
-
+$(document).ready(function() {
+  // get the username to fill out the user logged in
+  $.ajax({
+    url: "/api/username",
+    success: function(result) {
+      $('#username').text(result.user.firstname + " " + result.user.lastname);
+    }
+  });
+  getChildInfo();
+  function getChildInfo() {
+    var childId = localStorage.getItem('currentChildId');
+    $.ajax({
+      url: "/api/childs/" + childId,
+      success: function(result) {
+        $('#kidsName').text(result.firstname + " " + result.lastname);
+        $('#babyImage').attr('src', '../' + result.image);
+        $('#weight').text(result.weight);
+        $('#length').text(result.height);
+        $('#birtday').text(result.birthdate);
+        console.log(result);
+      }
+    });
+  }
+  function getChildsEvents() {
+    var childId = localStorage.getItem('currentChildId');
+    $.ajax({
+      url: "/api/events",
+      success: function(result) {
+        
+        $('#username').text(result.user.firstname + " " + result.user.lastname);
+      }
+    });
+  }
+});
 
 // This is the add event posistion sticky ========
 // When the user scrolls the page, execute myFunction 
