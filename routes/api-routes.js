@@ -45,7 +45,7 @@ module.exports = function(app, passport) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
     db.Event.findAll({
-      where:query,
+      where:query, 
       include: [db.Child]
     }).then(function(dbEvent) {
       res.json(dbEvent);
@@ -72,7 +72,8 @@ module.exports = function(app, passport) {
     console.log(req.files.sampleFile);
     let sampleFile = req.files.sampleFile;
     var img_name=sampleFile.name;
-    var childId = req.body.childId;
+    // var childId = req.body.childId;
+     // var userId = req.user.id;
     var img_loc_on_server = 'public/images/upload_images/'+img_name;
       // Use the mv() method to place the file somewhere on your server
         sampleFile.mv(img_loc_on_server, function(err) {
@@ -90,7 +91,8 @@ module.exports = function(app, passport) {
       story: req.body.story,
       date: req.body.date,
       imageurl: img_loc_on_server,
-      ChildId: userId
+      ChildId:req.body.childId
+      // ChildId: uId
     }
     db.Event.create(event).then(function (dbEvent) {
       res.json(dbEvent);

@@ -56,6 +56,18 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    // Event.belongsTo(models.user, {
+    //         foreignKey: {
+    //           allowNull: false
+    //         }
+    //       });
+    // Event.belongsTo(models.user, {
+    //         foreignKey: {
+    //           allowNull: false
+    //         }
+    //     });
+
+
   };
 
     
