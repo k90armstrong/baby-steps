@@ -53,6 +53,31 @@ function addSticky() {
     addEventBtn.classList.remove("sticky");
   }
 }
-
 // end of posistion sticky==========================
 
+// event timeline stuff event boxes
+
+function createTimelineElement(event) {
+  let $parentDiv  = $('<div>');
+    $parentDiv.addClass("cd-timeline-block");
+  let $childDiv = $('<div>');
+    $childDiv.addClass("cd-timeline-img cd-picture");
+  let $iconImage = $('<img>');
+    $iconImage.attr('src', event.imageurl);
+  let $timelineContent = $('<div>');
+    $timelineContent.addClass('cd-timeline-content');
+  let $titleSection = $('<h2>');
+    $titleSection.text(event.title);
+  let $paragraph = $('<p>');
+    $paragraph.text(event.stroy);
+  let $date = $('<span>');
+    $date.addClass('cd-date');
+    $date.text(event.date);
+
+   $parentDiv.append($childDiv);
+   $childDiv.append($iconImage);
+   $parentDiv.append($timelineContent);
+   $timelineContent.append($titleSection, $paragraph, $date);
+
+    return $parentDiv; 
+}
