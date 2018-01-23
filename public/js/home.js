@@ -18,15 +18,43 @@ $(document).ready(function() {
         // clear the container
         $('.childButtonContainer').empty();
         // loop through and add all of the children buttons
+        result.forEach(child => {
+          let name = `${child.firstname} ${child.lastname}`;
+          $('.childButtonContainer').append(createChildButton(name, child.id));
+        });
       }
-  });
-}
-
-  function createChildButton(name) {
-    var button = $('<button>');
-    button.addClass("btn btn-default big-btn");
-    button.text(name);
-    return button;    
+    });
   }
-});
 
+  function addChild(event) {
+    console.log('fdsjfjsd');
+    event.preventDefault();
+    var form_data = new FormData($('#uploadForm')[0]);
+    $.ajax({
+      url: "/api/childs",
+      type: 'POST',
+      data: form_data,
+      processData: false,
+      contentType: false,
+      success: function(result) {
+        // close the modal
+        $('#closeModal').click();
+        document.location.href='/home';
+        getChildren();
+      }
+    });
+  }
+
+  function createChildButton(name, id) {
+    var $button = $('<button>');
+    $button.addClass("btn btn-default big-btn childButton");
+    $button.attr('id', id);
+    $button.text(name);
+    return $button;
+  }
+
+  // add event listeners
+  $(document).on('click', '.childButton', function(){
+    document.location.href='/profile/' + $(this).text();
+  });
+});
