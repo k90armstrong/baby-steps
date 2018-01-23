@@ -35,30 +35,30 @@
 	<div class="container">
 		<div class="jumbotron" style="height: 451px">
 			<span>
-				<p>MATTHEW JUDD</p>	
-				<button type="button" class="btn button">GO HOME</button>
-				<form align="right" name="form1" method="post" action="log_out.php">
+				<p id="username"></p>	
+				<a type="button" class="btn button" href="/home">GO HOME</a>
+				<form align="right" name="form1" method="post" action="/logout">
 					<label class="logoutLblPos btn button">
 						<input name="submit2" type="submit" id="submit2" value="log out">
 					</label>
 				</form>
 			</span>
-			<h1>KIDS NAME</h1> 
+			<h1 id="kidsName"></h1> 
 			<span>
-				<img src="../img/picHere.png" class="img-thumbnail col-md-3" alt="Cinque Terre">
+				<img id="babyImage" src="../img/picHere.png" class="img-thumbnail col-md-3" alt="Cinque Terre">
 				<img src="../img/Dinosaur.png" class="smallPic col-md-2" alt="">
-				<p class="col-md-7">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+				<div>
+					<span>Weight: </span><span id="weight"></span>
+				</div>
+				<div>
+					<span>Length: </span><span id="length"></span>
+				</div>
+				<div>
+					<span>Birthday: </span><span id="birthday"></span>
+				</div>
 			</span>
 			<!-- EDIT BUTTON -->
 			<!-- EDIT BUTTONS MODAL -->
-
-			<div class="wrapper">
-				<div class="container">
-
-					<!-- Trigger the modal with a button -->
-					<button id="add-event-btn" type="button" class="btn btn-default big-btn btn-info btn-lg btn" data-toggle="modal" data-target="#editModal">EDIT</button>
-				</div>
-			</div>
 		
 
 
@@ -173,9 +173,9 @@
 						iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
 						<a href="#0" class="cd-read-more">Read more</a>
 						<span class="cd-date">Jan 14</span>
-					</div>
-					<!-- cd-timeline-content -->
 				</div>
+					<!-- cd-timeline-content -->
+			</div>
 				<!-- cd-timeline-block -->
 
 				<div class="cd-timeline-block">

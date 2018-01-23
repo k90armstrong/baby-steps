@@ -4,7 +4,7 @@ $(document).ready(function() {
   $.ajax({
     url: "/api/username",
     success: function(result) {
-      $('.userName').text(result.user.email);
+      $('.userName').text(result.user.firstname + " " + result.user.lastname);
     }
   });
 
@@ -55,6 +55,8 @@ $(document).ready(function() {
 
   // add event listeners
   $(document).on('click', '.childButton', function(){
+    localStorage.setItem("currentChildId", $(this).attr('id'));
     document.location.href='/profile/' + $(this).text();
   });
+  $( "#uploadForm" ).submit(addChild);
 });

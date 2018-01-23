@@ -132,7 +132,7 @@ module.exports = function(app, passport) {
        description: req.body.description,
        story: req.body.story,
        date: req.body.date,
-       imageurl:img_loc_on_server 
+       imageurl: 'images/upload_images/'+ img_name
      },{
       where:{
         id: req.body.id
@@ -196,7 +196,7 @@ app.post("/api/childs", function(req, res) {
 //                 });
 
     db.Child.create({
-      image:img_loc_on_server,
+      image:'images/upload_images/'+img_name,
       firstname:req.body.firstname,
       lastname:req.body.lastname,
       weight:req.body.weight,
