@@ -50,8 +50,8 @@
 
                             <!-- <form class="form-horizontal" action="/api/childs">
  -->
-                            <form id='uploadForm' method='post' action='/api/childs' enctype="multipart/form-data">
-        <input type='file' name='sampleFile'>
+                            <form id='uploadForm' enctype="multipart/form-data">
+        <input type='file' name='sampleFile' id="image">
         <!-- <input type='submit'> -->
 
 
@@ -69,6 +69,7 @@
 
                                 <label for="hspname">Hospitalborn</label>
                                 <input type="text" id="hspname" name="hospitalborn" placeholder="weight of the baby..">
+                                
                                 <label for="statename">State Born</label>
                                 <input type="text" id="statename" name="stateborn" placeholder="stateborn..">
 
@@ -85,14 +86,14 @@
                                 <!-- <label for="">About child- additional information</label>
                                 <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
  -->
-                                <input type="submit">
+                                <input type="submit" value="Submit">
 
                            <!--  </form> -->
                             </form>
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="closeModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
