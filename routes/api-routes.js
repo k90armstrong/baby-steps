@@ -90,8 +90,8 @@ module.exports = function(app, passport) {
       description: req.body.description,
       story: req.body.story,
       date: req.body.date,
-      imageurl: img_loc_on_server,
-      ChildId:req.body.childId
+      imageurl: 'images/upload_images/'+img_name,
+      ChildId: req.body.childId
       // ChildId: uId
     }
     db.Event.create(event).then(function (dbEvent) {
