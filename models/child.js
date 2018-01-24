@@ -28,10 +28,10 @@ module.exports = function(sequelize, DataTypes) {
             notEmpty: true
         },
         weight: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.STRING
         },
         height: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.STRING
         },
         hospitalborn:{
             type: DataTypes.STRING
