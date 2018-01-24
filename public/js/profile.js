@@ -7,6 +7,7 @@ $(document).ready(function() {
     }
   });
   getChildInfo();
+  getChildsEvents();
   function getChildInfo() {
     var childId = localStorage.getItem('currentChildId');
     $.ajax({
@@ -16,21 +17,54 @@ $(document).ready(function() {
         $('#babyImage').attr('src', '../' + result.image);
         $('#weight').text(result.weight);
         $('#length').text(result.height);
-        $('#birtday').text(result.birthdate);
+        $('#birthday').text(result.birthdate);
         console.log(result);
       }
     });
   }
   function getChildsEvents() {
     var childId = localStorage.getItem('currentChildId');
+    var params = { child_id: childId };
+    var str = jQuery.param( params );
     $.ajax({
-      url: "/api/events",
+      url: "/api/events?" + str,
       success: function(result) {
-        
-        $('#username').text(result.user.firstname + " " + result.user.lastname);
+        $('#cd-timeline').empty();
+        console.log(result);
+        result.forEach(event => {
+          var $event = createTimelineElement(event);
+          $('#cd-timeline').append($event);
+        });
       }
     });
   }
+
+
+  function addEvent(event) {
+    event.preventDefault();
+    var childId = localStorage.getItem('currentChildId');
+    var form_data = new FormData($('#eventForm')[0]);
+    form_data.append('childId', childId);
+    $.ajax({
+      url: "/api/events",
+      type: 'POST',
+      data: form_data,
+      processData: false,
+      contentType: false,
+      success: function(result) {
+        // close the modal
+        $('#closeModal').click();
+        getChildsEvents();
+      }
+    });
+  }
+
+
+  // add event listener
+  $( "#eventForm" ).submit(addEvent);
+
+
+
 });
 
 // This is the add event posistion sticky ========
@@ -63,13 +97,13 @@ function createTimelineElement(event) {
   let $childDiv = $('<div>');
     $childDiv.addClass("cd-timeline-img cd-picture");
   let $iconImage = $('<img>');
-    $iconImage.attr('src', event.imageurl);
+    $iconImage.attr('src', '../' + event.imageurl);
   let $timelineContent = $('<div>');
     $timelineContent.addClass('cd-timeline-content');
   let $titleSection = $('<h2>');
     $titleSection.text(event.title);
   let $paragraph = $('<p>');
-    $paragraph.text(event.stroy);
+    $paragraph.text(event.story);
   let $date = $('<span>');
     $date.addClass('cd-date');
     $date.text(event.date);
