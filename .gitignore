@@ -58,6 +58,7 @@ typings/
 
 # dotenv environment variables file
 .env
+public/images/upload_images
 
 config/
 
