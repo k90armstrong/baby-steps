@@ -47,7 +47,7 @@ var env = process.env.NODE_ENV || "development";
 var config = {
     "username": "oosygxzw76rnw8q3",
     "password": "bgj8h5bq99xv7mkr",
-    "database": "baby_steps",
+    "database": "i9irea1u9210lyhm",
     "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "port": "3306"
