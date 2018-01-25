@@ -58,3 +58,4 @@ typings/
 .env
 public/images/upload_images
 
+config/
