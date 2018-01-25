@@ -60,6 +60,5 @@ typings/
 .env
 public/images/upload_images
 
-config/
 
 public/images/upload_images/
