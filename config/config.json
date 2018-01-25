@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "k90armstrong",
+    "password": "12345678",
+    "database": "baby_steps",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "oosygxzw76rnw8q3",
+    "password": "bgj8h5bq99xv7mkr",
+    "database": "database_production",
+    "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "port": 3306
+  }
+}
