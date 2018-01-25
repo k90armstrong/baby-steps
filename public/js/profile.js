@@ -13,11 +13,12 @@ $(document).ready(function() {
     $.ajax({
       url: "/api/childs/" + childId,
       success: function(result) {
+        let dateFormatted = moment(result.birthdate).format("MMM Do YY");
         $('#kidsName').text(result.firstname + " " + result.lastname);
         $('#babyImage').attr('src', '../' + result.image);
         $('#weight').text(result.weight);
         $('#length').text(result.height);
-        $('#birthday').text(result.birthdate);
+        $('#birthday').text(dateFormatted);
         console.log(result);
       }
     });
@@ -54,6 +55,7 @@ $(document).ready(function() {
       success: function(result) {
         // close the modal
         $('#closeModal').click();
+        $('#eventForm')[0].reset();
         getChildsEvents();
       }
     });
@@ -104,9 +106,10 @@ function createTimelineElement(event) {
     $titleSection.text(event.title);
   let $paragraph = $('<p>');
     $paragraph.text(event.story);
+  let dateFormatted = moment(event.date).format("MMM Do YY");    
   let $date = $('<span>');
     $date.addClass('cd-date');
-    $date.text(event.date);
+    $date.text(dateFormatted);
 
    $parentDiv.append($childDiv);
    $childDiv.append($iconImage);
