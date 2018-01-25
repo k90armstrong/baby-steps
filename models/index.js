@@ -42,8 +42,16 @@ var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
-var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
+// var config = require(path.join(__dirname, '..', 'config', 'config.json'))[env];
+
 // var config    = require(__dirname + '/../config/config.json')[env];
+var config = {
+    "username": "i1ilsll3pfnpqobh",
+    "password": "twp466qsznwi83m3",
+    "database": "podclgytw049q7s1",
+    "host": "y0nkiij6humroewt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+};
 
 
 // var sequelize = new Sequelize(config.database, config.username, config.password, config);
