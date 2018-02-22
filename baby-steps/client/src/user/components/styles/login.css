@@ -1,0 +1,25 @@
+.loginContainer {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.bottomBorder {
+  border-bottom: solid;
+  margin-bottom: 1px;
+}
+.loginError {
+  color: red;
+}
+.loginFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
