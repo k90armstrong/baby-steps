@@ -9,7 +9,7 @@ var env = require("dotenv").load();
 // Create express app
 var app = express();
 var bodyParser = require("body-parser");
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;;
 
 // Requiring our models for syncing
 var db = require("./models");
