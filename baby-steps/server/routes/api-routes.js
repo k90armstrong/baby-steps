@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
 
   app.post('/api/user/update', function(req, res) {
     if (req.user) {
-      db.user.update({
+      db.User.update({
         email: req.body.email,
         firstname: req.body.firstname,
         lastname: req.body.lastname
@@ -66,6 +66,130 @@ module.exports = function(app, passport) {
     }
   });
   // End User APIs_________________________________________________________
+
+  // Invite APIS___________________________________________________________
+  app.post('/api/invite/create', function(req, res) {
+    if (req.user) {
+      db.User.findOne({
+        where: {
+          email: req.body.inviteEmail
+        }
+      })
+      .then(invitee => {
+        console.log(invitee);
+        if (invitee) {
+          let invite = {
+            message: req.body.message,
+            from: req.user.firstname + ' ' + req.user.lastname,
+            UserId: invitee.id,
+            FamilyId: req.body.familyId
+          }
+          return db.Invite.create(invite);
+        }
+        })
+        .then(()=>res.json({message: 'success'}))
+        .catch(error => res.json({message: 'there was an error'}));
+    } else {
+      res.json({message: 'there is no user'});
+    }
+  });
+
+  app.post('/api/invite/respond', function(req, res) {
+    let message;
+    if (req.user) {
+      db.Invite.findById(req.body.inviteId, {
+        include: [db.Family, db.User]
+      })
+      .then(invite => {
+        if (req.body.accept) {
+          // add family to the user
+          message = 'Family added';
+          invite.Family.addUser(invite.User, {through: {role: 'manager'}});
+        } else {
+          message = 'Invite removed'
+        }
+        // delete the invite
+        return invite.destroy();
+      })
+      .then(()=>{res.json({message: 'success'})})
+      .catch(invite => res.json({message: 'failure to add'}));
+    } else {
+      res.json({message: 'there is no user'});
+    }
+  });
+
+  app.get('/api/invites', function(req, res) {
+    db.Invite.findAll({
+      where: {
+        UserId: req.user.id
+      },
+      include: [db.Family]
+    })
+    .then(results=>res.json(results));
+  });
+
+  app.post('/api/invite/delete', function(req,res) {
+    if (req.user) {
+      db.Invite.destroy({
+        where: {
+          id: req.body.inviteId
+        }
+      })
+      .then(family => {
+        console.log(family);
+        res.json({message: 'success'});
+      });
+    }
+  });
+  // END INVITE APIS_______________________________________________________
+
+  // Family APIs___________________________________________________________
+  app.get('/api/families', function(req, res) {
+    var query = {};
+    if (req.user) {
+      query.UserId = req.user.id;
+    }
+    db.Family.findAll({
+      include: [{
+        model: db.User,
+        required: true,
+        attributes: ['firstName', 'lastName', 'id'],
+        through: {
+          where: {UserId: req.user.id}
+        }
+      }],
+      
+    }).then(function(family) {
+      res.json(family);
+    });
+  });
+
+  app.post('/api/family/create', function(req,res) {
+    if (req.user) {
+      db.Family.create({
+        name: req.body.name
+      })
+      .then(family => {
+        family.addUser(req.user.id, {through: {role: 'manager'}})
+      })
+    }
+  });
+
+  app.post('/api/family/delete', function(req,res) {
+    if (req.user) {
+      db.Family.destroy({
+        where: {
+          id: req.body.familyId
+        }
+      })
+      .then(family => {
+        console.log(family);
+        res.json({message: 'success'});
+      });
+    }
+  });
+  // END FAMILY APIS_______________________________________________________
+
   // Events APIs
   app.get("/api/events", function(req, res) {
     var query = {};

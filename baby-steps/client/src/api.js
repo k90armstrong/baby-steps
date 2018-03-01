@@ -70,5 +70,49 @@ export const api = {
         catchCB(response);
       });
     }
+  },
+  family: {
+    getFamilies: (cb, catchCB) => {
+      axios.get('/api/families')
+      .then(function(status) {
+        cb(status.data);
+      })
+      .catch(function(response) {
+        catchCB(response);
+      });
+    },
+    deleteFamily: (id, cb, catchCB) => {
+      axios.post('/api/family/delete', {
+        familyId: id
+      })
+      .then((response)=>{
+        cb(response.data);
+      })
+      .catch((response)=>{
+        catchCB(response);
+      });
+    },
+    share: (familyId, cb, catchCb) => {
+      axios.post('/api/invite/create', {
+        familyId
+      })
+      .then((response)=>{
+        cb(response.data);
+      })
+      .catch((response)=>{
+        catchCb(response);
+      });
+    }
+  },
+  invites: {
+    all: (cb, catchCB) => {
+      axios.get('/api/invites')
+      .then(response=>{
+        cb(response.data);
+      })
+      .catch(response=>{
+        catchCB(response);
+      });
+    }
   }
 }

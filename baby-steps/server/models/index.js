@@ -46,7 +46,6 @@ var env = process.env.NODE_ENV || "development";
 // varconfig    = require(__dirname + '/../config/config.json')[env];
 var config = {
     "username": "oosygxzw76rnw8q3",
-
     "password": "bgj8h5bq99xv7mkr",
     "database": "i9irea1u9210lyhm",
     "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",

@@ -1,0 +1,20 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  max-height: 100%;
+  width: 400px;
+  max-width: 100%;
+  z-index: 2010;
+}
+
+.modalBody {
+  padding: 25px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
