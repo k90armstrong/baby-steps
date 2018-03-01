@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import BAppBar from '../components/BAppBar';
 import { loadedUser } from '../user/actions';
 import { connect } from 'react-redux';
+import { api } from '../api';
 
 class MyFamilyManager extends React.Component {
+
   render() {
     return (
       <div>
         <BAppBar 
-          accountClicked={()=>this.props.history.push('/myaccount')}
+          accountClicked={()=>this.props.history.push('/app/myaccount')}
           logoutSuccess={this.props.loadedUser}
         />
       </div>

@@ -10,7 +10,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     
-    var User = sequelize.define('user', {
+    var User = sequelize.define('User', {
         id: {
             autoIncrement: true,
             primaryKey: true,
@@ -52,14 +52,17 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        // Associating Event with Posts
-        // When an Event is deleted, also delete any associated Posts
-        User.hasMany(models.Child, {
+
+        User.belongsToMany(models.Family, {
+            onDelete: "cascade",
+            through: "UserFamily"
+        });
+        User.hasMany(models.Privilege, {
             onDelete: "cascade"
         });
-        // User.hasMany(models.Event, {
-        //     onDelete: "cascade"
-        // });
+        User.hasMany(models.Invite, {
+            onDelete: "cascade"
+        });
     };
 
     return User;

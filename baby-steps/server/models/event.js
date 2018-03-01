@@ -24,13 +24,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         imageurl:{
         	type: DataTypes.STRING
-        
-
         },
         description:{
         	type: DataTypes.STRING
-        
-
         },
         story:{
         	type: DataTypes.STRING
@@ -46,31 +42,14 @@ module.exports = function(sequelize, DataTypes) {
 
 
     });
-    
-
     Event.associate = function(models) {
-    // We're saying that a child should belong to an Event
-    // A child can't be created without an Event due to the foreign key constraint
-    Event.belongsTo(models.Child, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    // Event.belongsTo(models.user, {
-    //         foreignKey: {
-    //           allowNull: false
-    //         }
-    //       });
-    // Event.belongsTo(models.user, {
-    //         foreignKey: {
-    //           allowNull: false
-    //         }
-    //     });
-
-
-  };
-
-    
-
+      // We're saying that a child should belong to an Event
+      // A child can't be created without an Event due to the foreign key constraint
+      Event.belongsTo(models.Child, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
     return Event;
 };   

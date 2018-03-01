@@ -39,7 +39,7 @@ require("./routes/api-routes.js")(app, passport);
 require("./routes/html-routes.js")(app, passport);
 
 //load passport strategies
-require("./passport/passport.js")(passport, db.user);
+require("./passport/passport.js")(passport, db.User);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

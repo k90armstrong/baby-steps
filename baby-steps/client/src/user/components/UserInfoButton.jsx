@@ -26,7 +26,7 @@ class UserInfoButton extends React.Component {
   }
 
   accountClicked() {
-    this.props.history.push('/myaccount');
+    this.props.history.push('/app/myaccount');
   }
 
   render() {
