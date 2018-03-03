@@ -3,20 +3,20 @@ import FlatButton from 'material-ui/FlatButton';
 import LinearProgress from 'material-ui/LinearProgress';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import styles from '../styles/inviteFamilyMember.css';
+import styles from '../styles/addFamily.css';
 import { api } from '../../api';
 
-class InviteFamilyMember extends React.Component {
+class AddFamily extends React.Component {
     constructor() {
       super();
       this.state = {
-        email: ''
+        name: ''
       }
     }
 
     handleChange = (event) => {
       this.setState({
-        email: event.target.value
+        [event.target.name]: event.target.value
       });
     }
 
@@ -28,16 +28,14 @@ class InviteFamilyMember extends React.Component {
               <div className={'modal'}>
                 <Paper>
                   <div className={'modalBody'}>
-                    <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Share Family</div>
-                    <p>
-                      Enter the email of the user you would like to share the 
-                      <strong> {this.props.family.name}</strong> family with!
-                    </p>
+                    <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Create Family and Save Memories</div>
                     <div>
                     <TextField
-                      hintText="dmanchester@baby-steps.com"
-                      type={"email"}
+                      hintText="Manchester"
+                      type={"text"}
                       onChange={this.handleChange}
+                      floatingLabelText={"Family Name"}
+                      name={"name"}
                     />
                     </div>
                     <div className={'actions'}>
@@ -47,7 +45,12 @@ class InviteFamilyMember extends React.Component {
                       />
                       <FlatButton 
                         label={'Submit'}
-                        onClick={()=>this.props.handleInviteSubmit(this.state.email)}
+                        onClick={()=>{
+                          let familyInfo = {
+                            name: this.state.name
+                          }
+                          this.props.handleSubmit(familyInfo)
+                        }}
                       />
                     </div>
                   </div>
@@ -73,4 +76,4 @@ class InviteFamilyMember extends React.Component {
     }
 }
 
-export default InviteFamilyMember;
+export default AddFamily;
