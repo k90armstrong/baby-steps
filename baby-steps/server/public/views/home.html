@@ -19,24 +19,46 @@
 
 <body>
 
-    <!-- log out -->
 
-    <form align="right" name="form1" method="post" action="/logout">
-        <label class="logoutLblPos">
-            <input name="submit2" type="submit" id="submit2" value="log out">
-        </label>
-        <p class="userName"></p>
-    </form>
+    <!-- nav  bar -->
+    <div class="navBar1">
 
-    <!-- ===== -->
+        <nav class="navbar navBar1 navbar-default">
+            <div class="container-fluid">
 
-    <div class="wrapper">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/home">
+                            <span class="glyphicon glyphicon-user"></span>Go Home</a>
+                    </li>
+                    <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-log-in"></span> Sign out</a>
+                    </li>
+                    <!-- <form align="right" name="form1" method="post" action="/logout">
+                    <label class="logoutLblPos btn button">
+                        <input name="submit2" type="submit" id="submit2" value="log out">
+                    </label>
+                </form> -->
+                </ul>
+            </div>
+        </nav>
+    </div>
 
-        <div class="container">
 
-        
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default big-btn btn-info btn-lg addChild" data-toggle="modal" data-target="#myModal">+ ADD CHILD</button>
+    <!-- cards -->
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="container">
+        <!-- ADD CHILD  -->
+        <div class="card col-md-6">
+            <img src="../img/picHere.png" alt="John" style="width:100%">
+
+            <p>
+                <buttontype="button" class="btn btn-default big-btn btn-info btn-lg addChild" data-toggle="modal" data-target="#myModal">Add Child</button>
+            </p>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
@@ -48,11 +70,9 @@
                         </div>
                         <div class="modal-body">
 
-                            <!-- <form class="form-horizontal" action="/api/childs">
- -->
+
                             <form id='uploadForm' enctype="multipart/form-data">
-        <input type='file' name='sampleFile' id="image">
-        <!-- <input type='submit'> -->
+                                <input type='file' name='sampleFile' id="image">
 
 
                                 <label for="fname">First Name</label>
@@ -65,11 +85,11 @@
                                 <input type="text" id="weight" class="form-control" name="weight" placeholder="7 lbs 2 Oz">
 
                                 <label for="height">Length</label>
-                                <input type="text" id="height"  class="form-control"name="height" placeholder="22 inches">
+                                <input type="text" id="height" class="form-control" name="height" placeholder="22 inches">
 
                                 <label for="hspname">Hospital</label>
                                 <input type="text" id="hspname" class="form-control" name="hospitalborn" placeholder="Hospital">
-                                
+
                                 <label for="statename">State Born</label>
                                 <input type="text" id="statename" class="form-control" name="stateborn" placeholder="Utah">
 
@@ -83,13 +103,12 @@
                                     <option value="Female">Female</option>
                                 </select>
 
-                                <!-- <label for="">About child- additional information</label>
-                                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
- -->
+
                                 <input type="submit" value="Submit">
 
-                           <!--  </form> -->
+
                             </form>
+
 
                         </div>
                         <div class="modal-footer">
@@ -100,10 +119,67 @@
             </div>
         </div>
 
-        <div class="childButtonContainer">
-            <!-- <button type="button" class="btn btn-default big-btn">Child Name</button> -->
-        </div>
+        <!-- <div class="childButtonContainer">
+        </div> -->
 
+    </div>
+
+
+<div class="container">
+
+    <!-- VIEW ALL CHILDS TIMELINES -->
+    <div class="card col-md-6">
+        <img src="../img/picHere.png" alt="John" style="width:100%">
+        <h1>VEIW ALL TIMELINES</h1>
+        
+        <!-- <p>
+            <button>View All Children</button>
+            <p> -->
+                    <buttontype="button" class="btn btn-default big-btn btn-info btn-lg addChild" data-toggle="modal" data-target="#allChildModal">View All Children</button>
+                </p>
+    
+                <!-- Modal -->
+                <div class="modal fade" id="allChildModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+    
+    
+                                <form id='uploadForm' enctype="multipart/form-data">
+                                    <input type='file' name='sampleFile' id="image">
+    
+    
+                                    <label for="fname">First Name</label>
+                                    <input type="text" id="fname" class="form-control" name="firstname" placeholder="Baby's first name..">
+    
+    
+                                    <input type="submit" value="Submit">
+    
+    
+                                </form>
+    
+    
+                            </div>
+                            <div class="modal-footer">
+                                <button id="closeModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p>
+    </div>
+    
+</div>
+
+
+
+
+    <div class="childButtonContainer">
     </div>
 
 

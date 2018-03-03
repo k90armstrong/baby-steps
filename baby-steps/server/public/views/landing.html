@@ -13,6 +13,17 @@
   <!-- aniimation -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
+
+  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<!-- <link href="parallax.css" rel="stylesheet"> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://www.solodev.com/assets/parallax/jquery.localscroll-1.2.7-min.js"></script>
+<script src="https://www.solodev.com/assets/parallax/jquery.parallax-1.1.3.js"></script>
+<script src="https://www.solodev.com/assets/parallax/jquery.scrollTo-1.4.2-min.js"></script>
+
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -21,13 +32,141 @@
 
 <body>
   
-  <span>
-    <img class="logo" src="../img/babysteps.png" alt="Smiley face">
-  </span>
+ <!-- New Landing page -->
+
+
+<div class="navBar1">
+
+<nav class="navbar navBar1 navbar-default">
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav navbar-right">
+<!-- sign up =============== -->
+
+<button class="glyphicon glyphicon-user" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
+
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- log in================= -->
+      <button class="glyphicon glyphicon-log-in" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+    </ul>
+  </div>
+</nav>
+</div>
+
+<div class="container">
+<video autoplay muted loop id="myVideo">
+  <source src="../img/Judd_Family_Lifestyle.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+</video>
+</div>
+
+<div class="babyStepsText">
+<h2 class="largBaby">Welcome</h2>
+<p>to</p>
+<h2>Baby Steps</h2> 
+<!-- <p>saving the moments that mean the most to you!</p> -->
+</div>
+
+
+<div id="intro">
+<div class="story">
+   <div>
+     <div class="bigDealText col-md-6">
+
+       <h2>The Way of the Future</h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio.</p> 
+     </div>
+      <img class="bigDeal col-md-6" src="../img/Skye_NewBorns-16.jpg" alt="">
+    </div>
+</div>
+<!--.story-->
+</div>
+<!--#intro-->
+<div id="second">
+<div class="story">
+   <div class="bg"></div>
+   <!-- <img class="bigDeal col-md-6" src="../img/mac.png" alt=""> -->
+   <div class="float-right">
+
+      <h2>Fun with Multiple Backgrounds</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio.</p> 
+      <p>Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+   </div>
+</div>
+<!--.story-->
+</div>
+
+<footer class"footer">
+<p>Posted by: Hege Refsnes</p>
+<p>Contact information: <a href="mailto:someone@example.com">
+someone@example.com</a>.</p>
+</footer>
+
+
+
+
+
     
 
-  <!-- log in -->
-  <form action="/login" class="longinContainer" method="post">
+<!-- log in -->
+  <!-- <form action="/login" class="longinContainer" method="post">
 
     <div class="container">
       <label>
@@ -54,16 +193,16 @@
     </div>
 
 
-  </form>
+  </form> -->
 
 
-  <!-- sign up -->
-  <!-- Button to open the modal -->
-  <div class="container">
+<!-- sign up -->
+<!-- Button to open the modal -->
+  <!-- <div class="container">
 
-    <button onclick="document.getElementById('id01').style.display='block'" class="signUpBtn" >Sign Up</button>
-    <!-- The Modal (contains the Sign Up form) -->
-    <div id="id01" class="modal">
+    <button onclick="document.getElementById('id01').style.display='block'" class="signUpBtn" >Sign Up</button> -->
+<!-- The Modal (contains the Sign Up form) -->
+    <!-- <div id="id01" class="modal">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">X</span>
       <form class="modal-content" action="/signup" method="post">
         <div class="container wider">
@@ -107,11 +246,9 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
 
-    <span>
-        <img class="deerPic" src="../img/deer.png" alt="Smiley face">
-      </span>
+    
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
