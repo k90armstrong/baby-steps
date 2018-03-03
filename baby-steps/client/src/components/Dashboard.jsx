@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { api } from '../api';
 import FamilyCard from '../family/components/FamilyCard';
 import InviteFamilyMember from '../family/components/InviteFamilyMember';
+import AddFamily from '../family/components/AddFamily';
 import SnackBarNotification from '../components/SnackBarNotification';
 import Confirm from '../components/Confirm';
 
@@ -18,7 +19,8 @@ class Dashboard extends React.Component {
       families: [],
       modal: {
         deleteFamily: false,
-        inviteFamily: false
+        inviteFamily: false,
+        addFamily: false
       },
       snackbar: {
         open: false,
@@ -65,11 +67,18 @@ class Dashboard extends React.Component {
     }, ()=>this.toggleModal('inviteFamily'))
   }
 
-  handleInviteSubmit = () => {
-    api.family.share(this.state.activeFamily.id, 
+  handleInviteSubmit = (email) => {
+    let inviteInfo = {
+      email,
+      familyId: this.state.activeFamily.id
+    }
+    console.log(inviteInfo);
+    api.family.share(inviteInfo, 
       (response)=>{
         if (response.message === 'success') {
           this.showSnackbar('Invite Sent!');
+        } else {
+          this.showSnackbar('Sorry no one with this email exists, or something else happened!')
         }
         this.setState({
           activeFamily: false,
@@ -77,6 +86,18 @@ class Dashboard extends React.Component {
       },
       (response)=>{
         console.log('error inviting');
+    });
+  }
+
+  handleAddFamily = (familyInfo) => {
+    console.log(familyInfo);
+    api.family.add(familyInfo, 
+      (response)=>{
+        this.toggleModal('addFamily');
+        this.showSnackbar('Success! Start saving memories!');
+        this.loadFamilies();
+    }, (response)=>{
+      this.showSnackbar('Sorry there was an error creating a family');
     });
   }
 
@@ -125,7 +146,7 @@ class Dashboard extends React.Component {
           })}
           <FamilyCard
             key={'add'}
-            handleAddFamily={()=>{}}
+            handleAddFamily={()=>this.toggleModal('addFamily')}
           />
         </div>
         <Confirm 
@@ -142,6 +163,11 @@ class Dashboard extends React.Component {
           open={this.state.modal.inviteFamily}
           handleClose={()=>this.toggleModal('inviteFamily')}
           handleInviteSubmit={this.handleInviteSubmit}
+        />
+        <AddFamily
+          open={this.state.modal.addFamily}
+          handleClose={()=>this.toggleModal('addFamily')}
+          handleSubmit={this.handleAddFamily}
         />
         <SnackBarNotification
           onRequestClose={this.handleSnackbarRequestClose}
