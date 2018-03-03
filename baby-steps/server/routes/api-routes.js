@@ -170,8 +170,10 @@ module.exports = function(app, passport) {
         name: req.body.name
       })
       .then(family => {
-        family.addUser(req.user.id, {through: {role: 'manager'}})
+        return family.addUser(req.user.id, {through: {role: 'manager'}})
       })
+      .then(()=>res.json({message: 'success'}))
+      .catch(()=>res.json({message: 'error'}))
     }
   });
 
