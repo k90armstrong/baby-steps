@@ -92,12 +92,28 @@ export const api = {
         catchCB(response);
       });
     },
-    share: (familyId, cb, catchCb) => {
+    share: (inviteInfo, cb, catchCb) => {
       axios.post('/api/invite/create', {
-        familyId
+        familyId: inviteInfo.familyId,
+        inviteEmail: inviteInfo.email
       })
       .then((response)=>{
         cb(response.data);
+      })
+      .catch((response)=>{
+        catchCb(response);
+      });
+    },
+    add: (familyInfo, cb, catchCb) => {
+      axios.post('/api/family/create', {
+        name: familyInfo.name
+      })
+      .then((response)=>{
+        if (response.data.message === 'success') {
+          cb(response.data);
+        } else {
+          catchCb(response);  
+        }
       })
       .catch((response)=>{
         catchCb(response);
