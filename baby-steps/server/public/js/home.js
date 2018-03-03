@@ -60,3 +60,10 @@ $(document).ready(function() {
   });
   $( "#uploadForm" ).submit(addChild);
 });
+
+
+
+
+// NEW STYLE
+
+
