@@ -275,13 +275,28 @@ span.psw {
   color: white;
   float: right;
   margin-top: 40px;
-  border:7px solid rgb(190, 252, 238);
-  width: 36% !important;
+  /* border:7px solid rgb(190, 252, 238); */
+  width: 14% !important;
   padding: 0px !important;
 }
 
+.floatToRight {
+  float: right;
+}
+
+.floatToLeft {
+  float: left;
+}
+
 .bigDealText {
+  /* clear: both; */
   margin-top: 40px;
+  margin-bottom: 31px;
+  
+}
+
+.overFlow {
+  width: 70%;
 }
 
 
@@ -368,7 +383,7 @@ h2{
       background-color: white;
   background-size: cover;
       /* color: white; */
-      height: 600px;
+      height: 1034px;
       margin: 0 auto;
       padding: 0;
       width: 100%;
@@ -417,7 +432,8 @@ h2{
 }
 
 .story{
-      margin: 0 auto;
+      margin-left: 26%;
+      /* margin: 0 auto; */
       min-width: 980px;
       overflow: auto;
       width: 980px;
@@ -429,6 +445,9 @@ h2{
       width: 350px;   
 }
 
+.giveMeSpace {
+  margin-bottom: 5px;
+}
 
 /* login modal */
 
