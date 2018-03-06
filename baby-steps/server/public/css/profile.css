@@ -3,17 +3,28 @@
 }
 
 .addEvent {
-    float: right;
     right: 10px;
-    /* margin-right: 132px; */
+    margin-left: 342px;
+    z-index: 1000;
+    width: 40%;
+    margin-bottom: 5px;
+
+  }
+
+  .SharePrintBtn {
+    right: 10px;
+    margin-left: 366px;
     z-index: 1000;
   }
-  
-  .sticky {
+  .btnColorSize {
+    background-color: gray !important;
+    width: 20%;
+  }
+  /* .sticky {
     position: fixed;
     top: 10px;
     margin-right: 130px;
-  }
+  } */
 
 .smallPic {
     float: left;
@@ -529,23 +540,7 @@ span {
    }
 
 
-   /* stupid dino sizing */
-
-
-@media screen and (max-width: 991px) {
-  .smallPic {
-    width: 27%;
-  }
-
-}
-
-@media screen and (max-width: 768px) {
-
-	.smallPic {
-    width: 27%;
-  }
-
-}
+ 
 
 
 
@@ -579,7 +574,6 @@ span {
 body {
   font-family: Arial;
   padding: 20px;
-  background-color: blue !important;
 }
 
 
