@@ -8,6 +8,16 @@
 // Requiring our models
 var db = require("../models");
 var Child = require("../models/child.js");
+var multer  =   require('multer');
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  }
+});
+var upload = multer({ storage : storage }).array('userPhoto',8);
 
 
 module.exports = function(app, passport) {
@@ -195,7 +205,7 @@ module.exports = function(app, passport) {
   });
   // END FAMILY APIS_______________________________________________________
 
-  // Events APIs
+  // Events APIs*************************************
   app.get("/api/events", function(req, res) {
     var query = {};
     if (req.query.child_id) {
@@ -227,20 +237,22 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/events', function (req, res) {
-    console.log(req.body);
-    console.log(req.body.title);
-    console.log(req.files.sampleFile);
-    let sampleFile = req.files.sampleFile;
-    var img_name=sampleFile.name;
+    upload(req,res,function(err) {
+      console.log(req.body);
+      console.log(req.files);
     // var childId = req.body.childId;
      // var userId = req.user.id;
-    var img_loc_on_server = 'public/images/upload_images/'+img_name;
-      // Use the mv() method to place the file somewhere on your server
-        sampleFile.mv(img_loc_on_server, function(err) {
-            if (err)
-                return console.log(err);
-            console.log('File uploaded!');
-        });
+    var images=[];
+      for (i = 0; i < req.files.length; i++) {
+        images.push({url:req.files[i].filename})
+  //       console.log("filename =" + req.files[i].filename);
+  // img_name +=  req.files[i].filename + ";";
+}
+console.log("Image name string = "+img_name);
+      if(err) {
+         console.log(err);
+          return res.end("Error uploading file.");
+      }   
 // var sql = "INSERT INTO `children`(`image`) VALUES ('" + img_loc_on_server + "')";
 
 
@@ -250,14 +262,27 @@ module.exports = function(app, passport) {
       description: req.body.description,
       story: req.body.story,
       date: req.body.date,
-      imageurl: 'images/upload_images/'+img_name,
+      
       ChildId: req.body.childId
       // ChildId: uId
     }
     db.Event.create(event).then(function (dbEvent) {
-      res.json(dbEvent);
-    });
+      for(i=0;i<images.length;i++){
+        images[i].EventId = dbEvent.id
+      }
+      return db.Image.bulkCreate(images)
+
+      
+    }).then(function(res){
+      res.json({message:'success'
+
+      });
+    }).catch(error=>res.json({message:'there was a error'}));
   });
+
+});
+    
+    
 
   // DELETE route for deleting event
 
@@ -335,28 +360,88 @@ app.get("/api/childs/:id", function(req, res) {
     });
   });
 
-app.post("/api/childs", function(req, res) {
-  console.log(req.body);
-  console.log(req.body.firstname);
+app.post("/api/photo", function(req, res) {
+  upload(req,res,function(err) {
+        console.log(req.body);
+        console.log(req.files);
+      
+        var img_name ="";
+        var fname = "ftemp";
+        var lname = "ltemp";
+        var weight = "20";
+        var height = "40";
+        var hospitalborn = "temp hospital";
+        var gender = "M";
+        var birthdate = null;
+
+        for (i = 0; i < req.files.length; i++) {
+          console.log("filename =" + req.files[i].filename);
+    img_name +=  req.files[i].filename + ";";
+}
+console.log("Image name string = "+img_name);
+        if(err) {
+           console.log(err);
+            return res.end("Error uploading file.");
+        }   
+       db.Child.create({
+      image:img_name,
+      firstname:fname,
+      lastname:lname,
+      weight:weight,
+      height:height,
+      hospitalborn:hospitalborn,
+      gender:gender,
+      birthdate:null
+    }).then(function(dbChild) {
+      res.json(dbChild);
+    });
+    });
+});
+  // console.log(req.body);
+  // console.log(req.body.firstname);
   // console.log(req.files.sampleFile);
-  var sampleFile = req.files.sampleFile;
-  var img_name=sampleFile.name;
-  var userId = req.user.id;
-  var img_loc_on_server = 'public/images/upload_images/'+img_name;
+  
     // Use the mv() method to place the file somewhere on your server
-      sampleFile.mv(img_loc_on_server, function(err) {
-          if (err)
-              return console.log(err);
-          console.log('File uploaded!');
-      });
+      
 // var sql = "INSERT INTO `children`(`image`) VALUES ('" + img_loc_on_server + "')";
 
 //                 var query = db.query(sql, function(err, result) {
 //                     res.json(result);
 //                 });
 
-    db.Child.create({
-      image:'images/upload_images/'+img_name,
+    // db.Child.create({
+    //   image:'images/upload_images/'+img_name,
+    //   firstname:req.body.firstname,
+    //   lastname:req.body.lastname,
+    //   weight:req.body.weight,
+    //   height:req.body.height,
+    //   hospitalborn:req.body.hospitalborn,
+    //   gender:req.body.gender,
+    //   birthdate:req.body.birthdate,
+    //   userId: userId
+    // }).then(function(dbChild) {
+    //   res.json(dbChild);
+    // });
+    
+   // });
+ // });
+ app.post('/api/childs',function(req,res){
+    upload(req,res,function(err) {
+        console.log(req.body);
+        console.log(req.files);
+        var img_name=sampleFile.name;
+        var userId = req.user.id;
+        for (i = 0; i < req.files.length; i++) {
+          console.log("filename =" + req.files[i].filename);
+    img_name +=  req.files[i].filename + ";";
+}
+console.log("Image name string = "+img_name);
+        if(err) {
+           console.log(err);
+            return res.end("Error uploading file.");
+        }   
+       db.Child.create({
+      image:img_name,
       firstname:req.body.firstname,
       lastname:req.body.lastname,
       weight:req.body.weight,
@@ -368,9 +453,8 @@ app.post("/api/childs", function(req, res) {
     }).then(function(dbChild) {
       res.json(dbChild);
     });
-    
-   // });
- });
+    });
+  });
 
   
 

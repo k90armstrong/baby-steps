@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>File upload Node.</title>
+  </head>
+  <body>
+    <div id="cp-store-root" data-cp-settings='{ "access_key": "0e524556d32c94abbef0d0b058c58a1c" }'></div>
+<script>
+    (function ( d, s, id ) {
+        var js, cpJs = d.getElementsByTagName( s )[0], t = new Date();
+        if ( d.getElementById( id ) ) return;
+        js = d.createElement( s );
+        js.id = id;
+        js.setAttribute( 'data-cp-url', 'https://store.canvaspop.com' );
+        js.src = 'https://store.canvaspop.com/static/js/cpopstore.js?bust=' + t.getTime();
+        cpJs.parentNode.insertBefore( js, cpJs );
+    }( document, 'script', 'canvaspop-jssdk' ));
+</script>
+    <header>
+      <h2 id="test">Test Account</h2>
+    </header>
+     <p>
+       <img src="https://s3.amazonaws.com/canvaspop-popupstore-dev/2013/09/15/originals/516bb914bb2bf0b6fa5ddf42ebcc3993/1ffab4942c0bb66a4b509ebc60737036.JPG" width="600"/>
+     </p>
+     <p>
+      <button data-cp-url="https://s3.amazonaws.com/canvaspop-popupstore-dev/2013/09/15/originals/516bb914bb2bf0b6fa5ddf42ebcc3993/1ffab4942c0bb66a4b509ebc60737036.JPG">Buy Now</button>
+     </p>
+  </body>
+</html>
