@@ -264,9 +264,9 @@ span.psw {
   /* padding: 5px; */
   color: white;
   float: right;
-  margin-top: 40px;
+  margin-top: 5px;
   /* border:7px solid rgb(190, 252, 238); */
-  width: 10% !important;
+  width: 56% !important;
   padding: 0px !important;
 }
 
@@ -282,6 +282,7 @@ span.psw {
   /* clear: both; */
   margin-top: 12px;
   margin-bottom: 31px;
+  margin-left: 111px;
 }
 
 .overFlow {
@@ -378,7 +379,7 @@ h2 {
   background-color: white;
   background-size: cover;
   /* color: white; */
-  height: 200px;
+  height:429px;
   margin: 0 auto;
   padding: 0;
   width: 100%;
@@ -389,7 +390,7 @@ h2 {
   background-color: white;
   background-size: cover;
   /* color: white; */
-  height: 200px;
+  height:429px;
   margin: 0 auto;
   padding: 0;
   width: 100%;
@@ -461,9 +462,9 @@ h2 {
 }
 
 .story {
-  margin-left: 26%;
+  margin-left: 9%;
   /* margin: 0 auto; */
-  min-width: 980px;
+  min-width: 1086px;
   overflow: auto;
   width: 980px;
 }
