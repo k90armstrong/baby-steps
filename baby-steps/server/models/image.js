@@ -16,13 +16,13 @@ module.exports = function(sequelize, DataTypes) {
         
         Image.belongsTo(models.Child, {
             foreignKey: {
-              allowNull: false
+              allowNull: true
             }
 
           });
         Image.belongsTo(models.User, {
             foreignKey: {
-              allowNull: false
+              allowNull: true
             }
             
           });
@@ -32,6 +32,12 @@ module.exports = function(sequelize, DataTypes) {
             }
             
           });
+        Image.belongsTo(models.Family, {
+          foreignKey: {
+            allowNull: true
+          }
+          
+        });
     };
 
 
