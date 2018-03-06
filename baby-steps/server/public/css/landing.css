@@ -377,7 +377,6 @@ h2 {
   /* background:url("movie/work-1.jpg") 50% 0 no-repeat fixed; */
   background-color: white;
   background-size: cover;
-<<<<<<< HEAD
       /* color: white; */
       height: 200px;
       margin: 0 auto;
@@ -409,20 +408,9 @@ background-size: cover;
 }
 
 #second{
-=======
-  /* color: white; */
-  height: 1034px;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-}
-
-#second {
->>>>>>> 9cd45c08215ad29beceeeff08701a4b23224abd1
   background: url("../img/white2.jpg") 50% 0 no-repeat fixed;
   /* background-color: black; */
   background-size: cover;
-<<<<<<< HEAD
       /* color: white; */
       height: 800px;
       margin: 0 auto;
@@ -439,13 +427,6 @@ background-size: cover;
       position: absolute;
       z-index: 200;
       max-width: 1900px;
-=======
-  /* color: white; */
-  height: 1300px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0;
->>>>>>> 9cd45c08215ad29beceeeff08701a4b23224abd1
   width: 100%;
 }
 
