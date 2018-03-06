@@ -43,6 +43,12 @@ module.exports = function(sequelize, DataTypes) {
 
     });
     Event.associate = function(models) {
+        Event.hasMany(models.Image, {
+            onDelete: "cascade"
+        });
+        Event.hasMany(models.Video, {
+            onDelete: "cascade"
+        });
       // We're saying that a child should belong to an Event
       // A child can't be created without an Event due to the foreign key constraint
       Event.belongsTo(models.Child, {
