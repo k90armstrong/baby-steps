@@ -164,7 +164,10 @@ module.exports = function(app, passport) {
     });
   });
 
-  app.post('/api/family/create', function(req,res) {
+  app.post('/api/family/create', function(req, res) {
+    // console.log(req.body.files);
+    // console.log(req.body.name);
+    // console.log(req.files.image, 'files');
     if (req.user) {
       db.Family.create({
         name: req.body.name

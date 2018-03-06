@@ -11,13 +11,21 @@ class AddFamily extends React.Component {
     constructor() {
       super();
       this.state = {
-        name: ''
+        name: '',
+        file: null
       }
     }
 
     handleChange = (event) => {
       this.setState({
         [event.target.name]: event.target.value
+      });
+    }
+
+    handleImageUpload = (event) => {
+      console.log(event.target.files);
+      this.setState({
+        file: event.target.files[0]
       });
     }
 
@@ -45,7 +53,7 @@ class AddFamily extends React.Component {
                         floatingLabelText={"Family Name"}
                         name={"name"}
                       />
-                      <input className='filepond' type='file'/>
+                      <input className='filepond' type='file' onChange={this.handleImageUpload}/>
                     </div>
                     <div className={'actions'}>
                       <FlatButton 
@@ -56,7 +64,8 @@ class AddFamily extends React.Component {
                         label={'Submit'}
                         onClick={()=>{
                           let familyInfo = {
-                            name: this.state.name
+                            name: this.state.name,
+                            picture: this.state.file
                           }
                           this.props.handleSubmit(familyInfo)
                         }}
