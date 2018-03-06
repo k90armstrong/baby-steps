@@ -4,6 +4,7 @@ import LinearProgress from 'material-ui/LinearProgress';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import styles from '../styles/addFamily.css';
+import * as FilePond from 'filepond';
 import { api } from '../../api';
 
 class AddFamily extends React.Component {
@@ -20,6 +21,13 @@ class AddFamily extends React.Component {
       });
     }
 
+    componentWillMount() {
+      console.log('i am running!')
+      let inputElements = document.getElementsByClassName('filepond');
+      let filePond = FilePond.create(inputElements[0]);
+      console.log(inputElements);
+    }
+
     render() {
 			return (
         <div>
@@ -30,13 +38,14 @@ class AddFamily extends React.Component {
                   <div className={'modalBody'}>
                     <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Create Family and Save Memories</div>
                     <div>
-                    <TextField
-                      hintText="Manchester"
-                      type={"text"}
-                      onChange={this.handleChange}
-                      floatingLabelText={"Family Name"}
-                      name={"name"}
-                    />
+                      <TextField
+                        hintText="Manchester"
+                        type={"text"}
+                        onChange={this.handleChange}
+                        floatingLabelText={"Family Name"}
+                        name={"name"}
+                      />
+                      <input className='filepond' type='file'/>
                     </div>
                     <div className={'actions'}>
                       <FlatButton 
