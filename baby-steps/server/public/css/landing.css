@@ -276,7 +276,7 @@ span.psw {
   float: right;
   margin-top: 40px;
   /* border:7px solid rgb(190, 252, 238); */
-  width: 14% !important;
+  width: 10% !important;
   padding: 0px !important;
 }
 
@@ -290,18 +290,21 @@ span.psw {
 
 .bigDealText {
   /* clear: both; */
-  margin-top: 40px;
+  margin-top: 12px;
   margin-bottom: 31px;
   
 }
 
 .overFlow {
-  width: 70%;
+  width: 57%;
 }
 
 
 .footer {
   background-color: white !important;
+  z-index: 40;
+  /* background-color: white; */
+  height: 62px;
 }
 
 /* PARALLAX STUFF */
@@ -383,10 +386,33 @@ h2{
       background-color: white;
   background-size: cover;
       /* color: white; */
-      height: 1034px;
+      height: 200px;
       margin: 0 auto;
       padding: 0;
       width: 100%;
+}
+
+#intro1{
+  /* background:url("movie/work-1.jpg") 50% 0 no-repeat fixed; */
+  background-color: white;
+background-size: cover;
+  /* color: white; */
+  height: 200px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+#second2 {
+  background: url("../img/Remington-7.jpg") 50% 0 no-repeat fixed;
+  /* background-color: black; */
+background-size: cover;
+  /* color: white; */
+  height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
 }
 
 #second{
@@ -394,7 +420,7 @@ h2{
       /* background-color: black; */
   background-size: cover;
       /* color: white; */
-      height: 1300px;
+      height: 800px;
       margin: 0 auto;
       overflow: hidden;
       padding: 0;
