@@ -48,13 +48,13 @@ span {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
+/*   
   body {
     font-size: 100%;
     font-family: "Droid Serif", serif;
     color: #7f8c97;
     background-color: #e9f0f5;
-  }
+  } */
   
   a {
     color: #acb7c0;
@@ -553,6 +553,8 @@ span {
 
 
 /* this is the collums */
+
+
 .container {
   width: 1485px !important;
 }
@@ -577,8 +579,10 @@ span {
 body {
   font-family: Arial;
   padding: 20px;
-  background: #f1f1f1;
+  background-color: blue !important;
 }
+
+
 
 /* Header/Blog Title */
 .header {
