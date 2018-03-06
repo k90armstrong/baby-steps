@@ -44,9 +44,6 @@ module.exports = function(sequelize, DataTypes) {
         },
         birthdate:{
             type: DataTypes.DATE
-        },
-        image:{
-            type: DataTypes.STRING
         }
     });
     
