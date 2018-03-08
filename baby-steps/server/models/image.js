@@ -8,6 +8,12 @@ module.exports = function(sequelize, DataTypes) {
         },
         url:{
             type: DataTypes.STRING
+        },
+        secureUrl:{
+          type: DataTypes.STRING
+        },
+        publicId:{
+          type: DataTypes.STRING
         }
       });
         Image.associate = function(models) {
@@ -27,17 +33,17 @@ module.exports = function(sequelize, DataTypes) {
             
           });
         Image.belongsTo(models.Event, {
-            foreignKey: {
-              allowNull: false
-            }
-            
-          });
+          foreignKey: {
+            allowNull: true
+          }
+        });
         Image.belongsTo(models.Family, {
           foreignKey: {
             allowNull: true
           }
-          
         });
+        
+        
     };
 
 

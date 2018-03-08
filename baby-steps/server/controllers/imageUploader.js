@@ -7,10 +7,11 @@ cloudinary.config({
 });
 
 const uploadImage = function(imageData, cb) {
-  cloudinary.uploader.upload(imageData, function(result) { 
-    cb(result);
+  cloudinary.v2.uploader.upload_stream({resource_type: 'raw'}, function(error, result) {
+    console.log(error);
     console.log(result);
-  });
+    cb(result);
+    }).end(imageData.data);
 }
 
 module.exports = uploadImage;

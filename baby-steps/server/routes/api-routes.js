@@ -8,16 +8,17 @@
 // Requiring our models
 var db = require("../models");
 var Child = require("../models/child.js");
-var multer  =   require('multer');
-var storage =   multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './uploads');
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.originalname);
-  }
-});
-var upload = multer({ storage : storage }).array('userPhoto',8);
+// var multer  =   require('multer');
+// var storage =   multer.diskStorage({
+//   destination: function (req, file, callback) {
+//     callback(null, './uploads');
+//   },
+//   filename: function (req, file, callback) {
+//     callback(null, file.originalname);
+//   }
+// });
+// var upload = multer({ storage : storage }).array('userPhoto',8);
+var uploadToCloudinary = require('../controllers/imageUploader');
 
 
 module.exports = function(app, passport) {
@@ -167,8 +168,10 @@ module.exports = function(app, passport) {
         through: {
           where: {UserId: req.user.id}
         }
+      },
+      {
+        model: db.Image
       }],
-      
     }).then(function(family) {
       res.json(family);
     });
@@ -176,17 +179,29 @@ module.exports = function(app, passport) {
 
   app.post('/api/family/create', function(req, res) {
     // console.log(req.body.files);
-    // console.log(req.body.name);
-    // console.log(req.files.image, 'files');
+    
     if (req.user) {
-      db.Family.create({
-        name: req.body.name
-      })
-      .then(family => {
-        return family.addUser(req.user.id, {through: {role: 'manager'}})
-      })
-      .then(()=>res.json({message: 'success'}))
-      .catch(()=>res.json({message: 'error'}))
+      let familyId;
+      uploadToCloudinary(req.files.image, (imageInfo)=>{
+        console.log(imageInfo);
+        db.Family.create({
+          name: req.body.name
+        })
+        .then(family => {
+          familyId = family.id;
+          return family.addUser(req.user.id, {through: {role: 'manager'}});
+        })
+        .then(()=>{
+          return db.Image.create({
+            FamilyId: familyId, 
+            url: imageInfo.url,
+            secureUrl: imageInfo.secure_url,
+            publicId: imageInfo.public_id
+          });
+        })
+        .then(()=>res.json({message: 'success'}))
+        .catch(()=>res.json({message: 'error'}))
+      });
     }
   });
 
@@ -426,35 +441,21 @@ console.log("Image name string = "+img_name);
    // });
  // });
  app.post('/api/childs',function(req,res){
-    upload(req,res,function(err) {
-        console.log(req.body);
-        console.log(req.files);
-        var img_name=sampleFile.name;
-        var userId = req.user.id;
-        for (i = 0; i < req.files.length; i++) {
-          console.log("filename =" + req.files[i].filename);
-    img_name +=  req.files[i].filename + ";";
-}
-console.log("Image name string = "+img_name);
-        if(err) {
-           console.log(err);
-            return res.end("Error uploading file.");
-        }   
-       db.Child.create({
-      image:img_name,
-      firstname:req.body.firstname,
-      lastname:req.body.lastname,
-      weight:req.body.weight,
-      height:req.body.height,
-      hospitalborn:req.body.hospitalborn,
-      gender:req.body.gender,
-      birthdate:req.body.birthdate,
-      userId: userId
-    }).then(function(dbChild) {
-      res.json(dbChild);
-    });
-    });
+   
+  db.Child.create({
+    image:img_name,
+    firstname:req.body.firstname,
+    lastname:req.body.lastname,
+    weight:req.body.weight,
+    height:req.body.height,
+    hospitalborn:req.body.hospitalborn,
+    gender:req.body.gender,
+    birthdate:req.body.birthdate,
+    userId: userId
+  }).then(function(dbChild) {
+    res.json(dbChild);
   });
+});
 
   
 
