@@ -104,10 +104,12 @@ export const api = {
         catchCb(response);
       });
     },
-    add: (familyInfo, cb, catchCb) => {
-      axios.post('/api/family/create', {
-        name: familyInfo.name
-      })
+    add: (formData, cb, catchCb) => {
+      console.log(formData);
+      const config = {
+        headers: { 'content-type': 'multipart/form-data' }
+      }
+      axios.post('/api/family/create', formData, config)
       .then((response)=>{
         if (response.data.message === 'success') {
           cb(response.data);

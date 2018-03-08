@@ -90,8 +90,11 @@ class Dashboard extends React.Component {
   }
 
   handleAddFamily = (familyInfo) => {
-    console.log(familyInfo);
-    api.family.add(familyInfo, 
+    console.log('family image', familyInfo.picture);
+    let formData = new FormData();
+    formData.append('image', familyInfo.picture);
+    formData.append('name', familyInfo.name);
+    api.family.add(formData, 
       (response)=>{
         this.toggleModal('addFamily');
         this.showSnackbar('Success! Start saving memories!');

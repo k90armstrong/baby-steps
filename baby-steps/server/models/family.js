@@ -10,11 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       name: {
           type: DataTypes.STRING,
           allowNull: false
-      },
-    //   imageUrl: {
-    //       type: DataTypes.STRING,
-    //       allowNull: true
-    //   }
+      }
   });
 
   Family.associate = function(models) {
@@ -31,6 +27,9 @@ module.exports = function(sequelize, DataTypes) {
         onDelete: "cascade"
       });
       Family.hasMany(models.Privilege, {
+        onDelete: "cascade"
+      });
+      Family.hasMany(models.Image, {
         onDelete: "cascade"
       });
 
