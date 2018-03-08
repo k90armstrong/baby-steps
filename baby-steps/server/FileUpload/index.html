@@ -1,18 +1,16 @@
-
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Sample</title>
+    <title>File upload Node.</title>
   </head>
   <body>
-    <h1>Sample</h1>
-    <p>Welcome to File Upload Demo</p>
-        <form id="uploadForm"
+      <form id="uploadForm"
           enctype="multipart/form-data"
-          action="http://localhost:5000/api/events"
+          action="http://localhost:3000/api/photo"
           method="post">
       <input type="file" name="userPhoto" multiple />
       <input type="submit" value="Upload Image" name="submit">
-</form>
+      <input type='text' id='random' name='random'><br>
+      <span id = "status"></span>
+    </form>
   </body>
 </html>

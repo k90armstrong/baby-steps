@@ -30,7 +30,7 @@ app.use(passport.session()); // persistent login sessions
 
 // Static directory
 app.use(express.static("public"));
-app.use(fileUpload());
+
 
 // Routes
 // =============================================================
