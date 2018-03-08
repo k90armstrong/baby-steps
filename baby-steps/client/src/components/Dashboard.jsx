@@ -90,8 +90,9 @@ class Dashboard extends React.Component {
   }
 
   handleAddFamily = (familyInfo) => {
+    console.log('family image', familyInfo.picture);
     let formData = new FormData();
-    formData.append('image', familyInfo.file);
+    formData.append('image', familyInfo.picture);
     formData.append('name', familyInfo.name);
     api.family.add(formData, 
       (response)=>{

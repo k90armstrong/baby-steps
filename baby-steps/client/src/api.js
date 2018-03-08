@@ -105,6 +105,7 @@ export const api = {
       });
     },
     add: (formData, cb, catchCb) => {
+      console.log(formData);
       const config = {
         headers: { 'content-type': 'multipart/form-data' }
       }
