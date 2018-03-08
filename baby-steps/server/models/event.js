@@ -22,9 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         
 
         },
-        imageurl:{
-        	type: DataTypes.STRING
-        },
+        
         description:{
         	type: DataTypes.STRING
         },

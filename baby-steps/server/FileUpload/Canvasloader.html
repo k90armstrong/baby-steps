@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head profile="http://www.w3.org/2005/10/profile">
+        <title>canvaspop - Canvas Printing by CanvasPop</title>
+        <meta charset="utf-8">
+        <script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o
+            <n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o
+                <0?0:o);++r
+                    <o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f
+                        <c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);
+                        </script>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta name="description" content="">
+                        <meta name="author" content="">
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                        <meta property="og:title" content="canvaspop - powered by CanvasPop"/>
+                        <meta property="og:image" content="http://store.canvaspop.com/static/img/branding/powered-by-canvaspop.png"/>
+                        <meta property="og:description" content="Purchase my work of art!"/>
+                        <link href="//d1ijy107mi4qfw.cloudfront.net/static/css/layout.b92ef0aa.min.css" media="all" rel="stylesheet" type="text/css">
+                        <link href="//d1ijy107mi4qfw.cloudfront.net/static/css/vanilla.bean.a69455d0.min.css" media="all" rel="stylesheet" type="text/css">
+                        <!-- Standard Favicon -->
+                        <link rel="icon" type="image/ico" href="/favicon.ico"/>
+                        <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+                        <!-- Apple Touch Icons -->
+                        <link rel="apple-touch-icon" href="/static/img/favicons/apple-touch-icon.png"/>
+                        <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicons/apple-touch-icon-57x57.png"/>
+                        <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicons/apple-touch-icon-72x72.png"/>
+                        <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicons/apple-touch-icon-114x114.png"/>
+                        <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicons/apple-touch-icon-144x144.png"/>
+                        <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicons/apple-touch-icon-60x60.png"/>
+                        <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicons/apple-touch-icon-120x120.png"/>
+                        <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicons/apple-touch-icon-76x76.png"/>
+                        <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicons/apple-touch-icon-152x152.png"/>
+                        <!-- Windows 8 Tile Icons -->
+                        <meta name="application-name" content="CanvasPop"/>
+                        <meta name="msapplication-TileColor" content="#E2007A"/>
+                        <meta name="msapplication-square70x70logo" content="/static/img/favicons/tiny.png"/>
+                        <meta name="msapplication-square150x150logo" content="/static/img/favicons/square.png"/>
+                        <meta name="msapplication-wide310x150logo" content="/static/img/favicons/wide.png"/>
+                        <meta name="msapplication-square310x310logo" content="/static/img/favicons/large.png"/>
+                        <script type="text/javascript" src="//use.typekit.net/uad6vfx.js"></script>
+                        <script type="text/javascript">try {
+            Typekit.load();
+        }
+        catch ( e ) {
+        }</script>
+                    </head>
+                    <body data-partner="5a9a033635818" data-test-mode="1">
+                        <div class="wrap">
+                            <div class="main">
+                                <div class="row-fluid headerRow">
+                                    <div>
+                                        <div class="row row--mamabear row--notice">
+                                            <div class="col--12">
+                            This store is in test mode. Orders created will not be processed.                        </div>
+                                        </div>
+                                    </div>
+                                    <div id="header">
+                                        <div class="container">
+                                            <div class="span12 no-stack">
+                                                <div id="storeIconContainer"></div>
+                                                <div id="storeNameContainer"  style="is-hidden">
+                                                    <div id="storeName">
+                                                        <span>canvaspop</span>
+                                                    </div>
+                                                    <div id="storeCaption">powered by                                    
+                                                        <a href="http://www.canvaspop.com/?utm_source=popupstore_referral&utm_medium=cart&utm_campaign=powered_by_referral" target="_blank" data-ga-track-click="true" data-ga-category="Cart" data-ga-action="UserClickedPoweredBy"data-ga-label="CanvasPop Referral">
+                                                            <div class="powered-by">CanvasPop</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-fluid mainRow">
+                                    <div class="span12">
+                                        <div id="main">
+                                            <form id="cartForm" action="/cart/continue" method="post" class="form-horizontal">
+                                                <div id="spotlightContainer">
+                                                    <div class="container" id="productContainer">
+                                                        <div class="row-fluid" id="imageSelectContainer">
+                                                            <div class="span7">
+                                                                <div id="previewColumn">
+                                                                    <div id="imageCenter">
+                                                                        <div id="imagePreviewWrapper" class="show-product is-toggled">
+                                                                            <div class="js-artPreviewWrapper product-stage-wrapper is-S">
+                                                                                <div class="js-artPreviewFrame art-preview-outer">
+                                                                                    <div class="split split-top"></div>
+                                                                                    <div class="split split-bottom"></div>
+                                                                                    <div class="js-artPreviewMatte art-preview-inner">
+                                                                                        <div class="art-preview-shadow">
+                                                                                            <img
+                                                            id="imagePreview"
+                                                            src="https://s3.amazonaws.com/canvaspop-popupstore/2018/03/06/thumbs/e31071c1790a69a50327eaa4ad2c368e/512.jpg"
+                                                            class="product-stage">
+                                                    
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="realtimePreviewBanner">
+                                                                        <p>
+                                                                            <small>Your image will update to reflect the product options selected.</small>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="span5" id="configurator">
+                                                                <div id="cartFormLoadingIndicator" class="is-hidden">
+                                                                    <img src="/static/img/loading.gif">
+                    
+                                                                </div>
+                                                                <div id="productOptions">
+                                                                    <div class="row-fluid attributeSelectContainer">
+                                                                        <div class="span12 no-stack">
+                                                                            <a id="showMerch" class="btn btn-block" href="/cart/merch/product/S" data-ga-track-click="true" data-ga-category="Cart" data-ga-action="UserClickedMerchPage"data-ga-label="Cart Action">
+                On the fence? Click here to see more about our canvas prints.
+            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row-fluid attributeSelectContainer">
+                                                                        <div class="span4 no-stack configurator--row">
+                                                                            <div class="configurator--label">Product</div>
+                                                                        </div>
+                                                                        <div class="span8 no-stack">
+                                                                            <div class="configurator--dropdown form-select-wrapper">
+                                                                                <select class="form-select form-block emitter" id="product" name="product" data-selected-product="5534">
+                                                                                    <option
+                        selected                        data-slug="S"
+                        data-emit-name="userChangedProduct"
+                        data-emit-attr="slug"
+                        data-medium="canvas"
+                        value="5534">
+                        Canvas                    </option>
+                                                                                    <option
+                                                data-slug="FP"
+                        data-emit-name="userChangedProduct"
+                        data-emit-attr="slug"
+                        data-medium="paper"
+                        value="5535">
+                        Framed Print                    </option>
+                                                                                    <option
+                                                data-slug="PO"
+                        data-emit-name="userChangedProduct"
+                        data-emit-attr="slug"
+                        data-medium="paper"
+                        value="5536">
+                        Poster                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row-fluid attributeSelectContainer">
+                                                                        <div class="span4 no-stack configurator--row">
+                                                                            <div class="configurator--label">Size</div>
+                                                                        </div>
+                                                                        <div class="span8 no-stack">
+                                                                            <div class="configurator--dropdown form-select-wrapper">
+                                                                                <select class="pricable form-select form-block" id="size" name="size" data-rate="1">
+                                                                                    <option
+                                                data-price="24"
+                        data-width="8"
+                        data-height="10"
+                        value="8|10">
+                        10" x 8"  $24.00                    </option>
+                                                                                    <option
+                                                data-price="25"
+                        data-width="9"
+                        data-height="11"
+                        value="9|11">
+                        11" x 9"  $25.00                    </option>
+                                                                                    <option
+                                                data-price="26"
+                        data-width="10"
+                        data-height="12"
+                        value="10|12">
+                        12" x 10"  $26.00                    </option>
+                                                                                    <option
+                                                data-price="26"
+                        data-width="10"
+                        data-height="13"
+                        value="10|13">
+                        13" x 10"  $26.00                    </option>
+                                                                                    <option
+                                                data-price="29"
+                        data-width="11"
+                        data-height="14"
+                        value="11|14">
+                        14" x 11"  $29.00                    </option>
+                                                                                    <option
+                                                data-price="30"
+                        data-width="12"
+                        data-height="15"
+                        value="12|15">
+                        15" x 12"  $30.00                    </option>
+                                                                                    <option
+                                                data-price="33"
+                        data-width="13"
+                        data-height="16"
+                        value="13|16">
+                        16" x 13"  $33.00                    </option>
+                                                                                    <option
+                                                data-price="33"
+                        data-width="13"
+                        data-height="17"
+                        value="13|17">
+                        17" x 13"  $33.00                    </option>
+                                                                                    <option
+                                                data-price="34"
+                        data-width="14"
+                        data-height="17"
+                        value="14|17">
+                        17" x 14"  $34.00                    </option>
+                                                                                    <option
+                                                data-price="36"
+                        data-width="14"
+                        data-height="18"
+                        value="14|18">
+                        18" x 14"  $36.00                    </option>
+                                                                                    <option
+                                                data-price="37"
+                        data-width="15"
+                        data-height="18"
+                        value="15|18">
+                        18" x 15"  $37.00                    </option>
+                                                                                    <option
+                                                data-price="38"
+                        data-width="15"
+                        data-height="19"
+                        value="15|19">
+                        19" x 15"  $38.00                    </option>
+                                                                                    <option
+                                                data-price="39"
+                        data-width="16"
+                        data-height="20"
+                        value="16|20">
+                        20" x 16"  $39.00                    </option>
+                                                                                    <option
+                                                data-price="42"
+                        data-width="17"
+                        data-height="21"
+                        value="17|21">
+                        21" x 17"  $42.00                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row-fluid attributeSelectContainer">
+                                                                        <div class="span4 no-stack configurator--row">
+                                                                            <div class="configurator--label">Frame</div>
+                                                                        </div>
+                                                                        <div class="span8 no-stack">
+                                                                            <div class="configurator--dropdown">
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="frame075DW" class="checkImage">
+                                                                                        <input class="attributeFrame emitter pricable triggerPriceChange form-block checkedFrame" type="radio" name="frame" id="frame075DW"
+                                                           data-price="20"
+                               data-slug="075DW"
+                               data-emit-name="userChangedFrame"
+                               data-emit-attr="slug"
+                               data-label-attr="#frameLabel075DW"
+                               value="1"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_075DW.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span id="frameLabel075DW">
+                            0.75" deep +$20.00                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="frame150DW" class="checkImage">
+                                                                                        <input class="attributeFrame emitter pricable triggerPriceChange form-block " type="radio" name="frame" id="frame150DW"
+                                                           data-price="30"
+                               data-slug="150DW"
+                               data-emit-name="userChangedFrame"
+                               data-emit-attr="slug"
+                               data-label-attr="#frameLabel150DW"
+                               value="2"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_150DW.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span id="frameLabel150DW">
+                            1.5" deep +$30.00                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="frameBF" class="checkImage">
+                                                                                        <input class="attributeFrame emitter pricable triggerPriceChange form-block " type="radio" name="frame" id="frameBF"
+                                                           data-price="43"
+                               data-slug="BF"
+                               data-emit-name="userChangedFrame"
+                               data-emit-attr="slug"
+                               data-label-attr="#frameLabelBF"
+                               value="1682"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_BF.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span id="frameLabelBF">
+                            Black wood +$43.00                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="frameWF" class="checkImage">
+                                                                                        <input class="attributeFrame emitter pricable triggerPriceChange form-block " type="radio" name="frame" id="frameWF"
+                                                           data-price="43"
+                               data-slug="WF"
+                               data-emit-name="userChangedFrame"
+                               data-emit-attr="slug"
+                               data-label-attr="#frameLabelWF"
+                               value="1715"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_WF.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span id="frameLabelWF">
+                            White wood +$43.00                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row-fluid attributeSelectContainer">
+                                                                        <div class="span4 no-stack configurator--row">
+                                                                            <div class="configurator--label">Edge</div>
+                                                                        </div>
+                                                                        <div class="span8 no-stack">
+                                                                            <div class="configurator--dropdown">
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="edgeWB" class="checkImage">
+                                                                                        <input class="attributeEdge pricable emitter triggerPriceChange form-block checkedEdge" type="radio" name="edge" id="edgeWB"
+                                                           data-price="0"
+                               data-slug="WB"
+                               data-emit-name="userChangedEdge"
+                               data-emit-attr="slug"
+                               data-label-attr="#edgeLabelWB"
+                               value="1714"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_WB.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span class="attribute-label" id="edgeLabelWB">White Border No extra cost</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="configurator--thumbnail">
+                                                                                    <label for="edgeBB" class="checkImage">
+                                                                                        <input class="attributeEdge pricable emitter triggerPriceChange form-block " type="radio" name="edge" id="edgeBB"
+                                                           data-price="0"
+                               data-slug="BB"
+                               data-emit-name="userChangedEdge"
+                               data-emit-attr="slug"
+                               data-label-attr="#edgeLabelBB"
+                               value="1681"/>
+                                                                                        <div class="thumb">
+                                                                                            <img src="/static/img/S_BB.jpg">
+                        
+                                                                                        </div>
+                                                                                        <span class="attribute-label" id="edgeLabelBB">Black Border No extra cost</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-fluid attributeSelectContainer">
+                                                                    <div class="span4 no-stack configurator--row">
+                                                                        <div class="configurator--label configurator--price">
+                                                                            <span class='configurator--total' style="font-size:16px">Quantity</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="span8 no-stack">
+                                                                        <input id="quantity" name="quantity" type="number" class="emitter triggerPriceChange form-block" min="1" value="1"/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-fluid attributeSelectContainer">
+                                                                    <div class="span4 no-stack configurator--row">
+                                                                        <div class="configurator--label configurator--price">
+                                                                            <span class='configurator--total' style="font-size:16px">Total</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="span8 no-stack">
+                                                                        <span id="total" class="configurator--label">$24.00</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-fluid attributeSelectContainer">
+                                                                    <div class="span12 no-stack">
+                                                                        <button id="checkoutContinue" class="btn btn-large btn-primary ladda-button expand-right">
+                                Continue                                
+                                                                            <i id="continueIcon" class="icon-angle-right btn_icon direction_icon"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-fluid attributeSelectContainer">
+                                                                    <div id="buyLaterWrapper" class="span12 no-stack">
+                                                                        <a id="buyLater" class="btn btn-block" href="#" data-ga-track-click="true" data-ga-category="Cart" data-ga-action="UserClickedBuyLaterButton"data-ga-label="Cart">
+                                or buy later                            </a>
+                                                                    </div>
+                                                                    <div id="buyLaterForm" class="is-hidden row-fluid">
+                                                                        <div class="span9 no-stack">
+                                                                            <input type="text" name="email" placeholder="Email Address">
+                                                                        </div>
+                                                                        <div class="span3 no-stack">
+                                                                            <button type="button" class="btn btn-primary">Send</button>
+                                                                        </div>
+                                                                        <div class="span12 no-stack">
+                                                                            <small>Add your email and we will send you a link to this cart</small>
+                                                                            <p id="buyLaterError" class="is-hidden"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p id="buyLaterResult" class="is-hidden"></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.main -->
+                        </div>
+                        <!-- /.wrap -->
+                        <div class="row-fluid footer-row">
+                            <div id="footer">
+                                <div class="container">
+                                    <div class="span8 no-stack">
+                                        <div id="footerNav">
+                                            <div id="termsPriv">
+                                                <a href="/terms">Terms</a> &sdot;
+                                                <a href="/privacy">Privacy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span4 no-stack">
+                                        <div id="footerCopy">
+                    Copyright &copy; 2018 
+                                            <a href="http://www.canvaspop.com/?utm_source=popupstore_referral&utm_medium=cart&utm_campaign=footer_referral" target="_blank" data-ga-track-click="true" data-ga-category="Cart" data-ga-action="UserClickedCanvasPopFooter"data-ga-label=" CanvasPop Referral">CanvasPop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="//d1ijy107mi4qfw.cloudfront.net/static/js/jquery.33448218.min.js"></script>
+                        <script type="text/javascript" src="//d1ijy107mi4qfw.cloudfront.net/static/js/plugins.b5f354ad.min.js"></script>
+                        <script type="text/javascript">
+    //
+                            <!--
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga("create","UA-11512804-11");
+ga("send","pageview");
+    //-->
+                        </script>
+                        <script type="text/javascript" src="//d1ijy107mi4qfw.cloudfront.net/static/js/create.43779f8b.min.js"></script>
+                        <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4a0d718497","applicationID":"2830008","transactionName":"MgFbNUEDWhdXUUUIDQtLbBNaTV0KUldJTxINFA==","queueTime":0,"applicationTime":546,"atts":"HkZYQwkZSRk=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+                    </body>
+                </html>

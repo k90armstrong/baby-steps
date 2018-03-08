@@ -240,12 +240,13 @@ module.exports = function(app, passport) {
     // var childId = req.body.childId;
      // var userId = req.user.id;
     var images=[];
+    // var img_name ="";
       for (i = 0; i < req.files.length; i++) {
         images.push({url:req.files[i].filename})
   //       console.log("filename =" + req.files[i].filename);
-  // img_name +=  req.files[i].filename + ";";
+ // img_name +=  req.files[i].filename + ";";
 }
-console.log("Image name string = "+img_name);
+// console.log("Image name string = "+img_name);
       if(err) {
          console.log(err);
           return res.end("Error uploading file.");
@@ -259,6 +260,7 @@ console.log("Image name string = "+img_name);
       description: req.body.description,
       story: req.body.story,
       date: req.body.date,
+      
       
       ChildId: req.body.childId
       // ChildId: uId
@@ -298,16 +300,11 @@ console.log("Image name string = "+img_name);
   // PUT route for updating event/////
 
   app.put('/api/events', function (req, res) {
-    let sampleFile = req.files.sampleFile;
-  var img_name=sampleFile.name;
-  var img_loc_on_server = 'public/images/upload_images/'+img_name;
+    // let sampleFile = req.files.sampleFile;
+  // var img_name=sampleFile.name;
+  // var img_loc_on_server = 'public/images/upload_images/'+img_name;
     // Use the mv() method to place the file somewhere on your server
-      sampleFile.mv(img_loc_on_server, function(err) {
-          if (err)
-              return console.log(err);
-          console.log('File uploaded!');
-      });
-
+      
 
     db.Event.update({
      title: req.body.title,
