@@ -1,1 +1,1 @@
-web: node baby-steps/server/server.js
+web: node server.js

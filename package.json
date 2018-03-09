@@ -4,8 +4,9 @@
   "description": "An app to track a childs life events",
   "main": "server.js",
   "scripts": {
-    "client": "cd ../client && yarn start",
+    "client": "cd baby-steps/client && yarn start",
     "server": "nodemon .server.js",
+    "postinstall": "cd baby-steps/client && npm install",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "repository": {
