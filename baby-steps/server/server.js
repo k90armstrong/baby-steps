@@ -4,7 +4,7 @@ var session = require("express-session");
 var express = require("express");
 var multer  =   require('multer');
 var sequelize = require("sequelize");
-// var fileUpload = require("express-fileupload");
+var fileUpload = require("express-fileupload");
 
 var env = require("dotenv").load();
 // Create express app
