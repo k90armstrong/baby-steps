@@ -37,6 +37,9 @@ app.use(express.static("public"));
 // =============================================================
 // routes
 var authRoute = require("./routes/auth.js")(app, passport);
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./baby-steps/client/build/index.html"));
+});
 require("./routes/api-routes.js")(app, passport);
 require("./routes/html-routes.js")(app, passport);
 
