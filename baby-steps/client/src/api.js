@@ -132,6 +132,19 @@ export const api = {
       .catch(response=>{
         catchCB(response);
       });
+    },
+    respond: (inviteId, accept, cb, catchCb) => {
+      axios.post('/api/invite/respond', {inviteId, accept})
+      .then(response=>{
+        if (response.data.message === 'success') {
+          cb(response.data);
+        } else {
+          catchCb(response);
+        }
+      })
+      .catch(()=>{
+        catchCb();
+      });
     }
   },
   child: {
