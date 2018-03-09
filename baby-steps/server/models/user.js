@@ -63,6 +63,9 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Invite, {
             onDelete: "cascade"
         });
+        User.hasMany(models.Image, {
+            onDelete: "cascade"
+        });
     };
 
     return User;

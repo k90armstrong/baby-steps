@@ -53,6 +53,9 @@ module.exports = function(sequelize, DataTypes) {
         Child.hasMany(models.Event, {
             onDelete: "cascade"
         });
+        Child.hasMany(models.Image, {
+            onDelete: "cascade"
+        });
         Child.belongsTo(models.Family, {
             foreignKey: {
               allowNull: false

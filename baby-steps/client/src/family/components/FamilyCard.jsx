@@ -30,6 +30,10 @@ class FamilyCard extends React.Component {
                     label={'Delete Family'}
                     onClick={()=>this.props.handleFamilyDeleteClick(this.state.family)}
                   />
+                  <FlatButton 
+                    label={'Add Child'}
+                    onClick={()=>this.props.handleAddChildClick(this.state.family)}
+                  />
               </div>
             }
             {!this.state.family && 

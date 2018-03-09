@@ -163,6 +163,7 @@ module.exports = function(app, passport) {
     db.Family.findAll({
       include: [{
         model: db.User,
+        include: [db.Image],
         required: true,
         attributes: ['firstName', 'lastName', 'id'],
         through: {
@@ -171,6 +172,10 @@ module.exports = function(app, passport) {
       },
       {
         model: db.Image
+      },
+      {
+        model: db.Child,
+        include: [db.Image]
       }],
     }).then(function(family) {
       res.json(family);
@@ -440,21 +445,32 @@ console.log("Image name string = "+img_name);
     
    // });
  // });
- app.post('/api/childs',function(req,res){
-   
-  db.Child.create({
-    image:img_name,
-    firstname:req.body.firstname,
-    lastname:req.body.lastname,
-    weight:req.body.weight,
-    height:req.body.height,
-    hospitalborn:req.body.hospitalborn,
-    gender:req.body.gender,
-    birthdate:req.body.birthdate,
-    userId: userId
-  }).then(function(dbChild) {
-    res.json(dbChild);
-  });
+ app.post('/api/child/create',function(req,res) {
+  if (req.user) {
+    let childId;
+    uploadToCloudinary(req.files.image, (imageInfo)=>{
+      db.Child.create({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        weight: req.body.weight,
+        height: req.body.height,
+        hospitalborn: req.body.hospitalborn,
+        gender: req.body.gender,
+        birthdate: req.body.birthdate,
+        FamilyId: req.body.familyId
+      })
+      .then((child)=>{
+        return db.Image.create({
+          ChildId: child.id, 
+          url: imageInfo.url,
+          secureUrl: imageInfo.secure_url,
+          publicId: imageInfo.public_id
+        });
+      })
+      .then(()=>res.json({message: 'success'}))
+      .catch(()=>res.json({message: 'error'}))
+    });
+  }
 });
 
   
