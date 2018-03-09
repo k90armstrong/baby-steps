@@ -2,6 +2,7 @@
 var passport = require("passport");
 var session = require("express-session");
 var express = require("express");
+var path = require('path');
 // var multer  =   require('multer');
 var sequelize = require("sequelize");
 var fileUpload = require("express-fileupload");
