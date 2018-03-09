@@ -32,8 +32,9 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
-app.use(express.static("public"));
-
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("baby-steps/client/build"));
+}
 // Routes
 // =============================================================
 // routes
