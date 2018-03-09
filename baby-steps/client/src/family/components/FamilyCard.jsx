@@ -14,11 +14,12 @@ class FamilyCard extends React.Component {
 		}
     render() {
 			return (
-        <div style={{ width: 300, margin: 10 }}>
+        <div style={{ width: 'auto', margin: 10 }}>
           <Paper>
             {this.state.family && 
               <div>
                 <div>{this.state.family.name} Family</div>
+                <img src={this.state.family.Images[0].url} style={{height: 300}} />
                   <FlatButton 
                     label={'Invite Family Member'}
                     onClick={()=>this.props.handleFamilyInviteClick(this.state.family)}
