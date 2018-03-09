@@ -20,7 +20,7 @@
             done(null, user.get());
           }
           else{
-            done(user.errors,null);
+            done({error: "No User"},null);
           }
         });
   
