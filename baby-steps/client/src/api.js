@@ -160,6 +160,15 @@ export const api = {
       .catch((response)=>{
         catchCb(response);
       });
+    },
+    getEvents: (cb, catchCb) => {
+      axios.get('/api/child')
+      .then((events)=>{
+        cb(events)
+      })
+      .catch((response)=>{
+        catchCb(response)
+      })
     }
   },
   event: {
