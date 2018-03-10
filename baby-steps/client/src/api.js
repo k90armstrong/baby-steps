@@ -161,5 +161,10 @@ export const api = {
         catchCb(response);
       });
     }
+  },
+  event: {
+    add: (formData, cb, catchCb) => {
+      axios.post('/api/event')
+    }
   }
 }
