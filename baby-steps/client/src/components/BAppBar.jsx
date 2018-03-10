@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import { api } from '../api';
 import { connect } from 'react-redux';
-import $ from 'jquery';
 import { loadedUser } from '../user/actions';
 import { user } from '../user/reducers';
 import UserInfoButton from '../user/components/UserInfoButton';
