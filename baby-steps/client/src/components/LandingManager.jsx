@@ -24,7 +24,7 @@ class LandingManager extends React.Component {
 
 <div className="container">
     <video autoPlay muted loop id="myVideo">
-      <source src="./img/Judd_Family_Lifestyle.mp4" type="video/mp4"/> Your browser does not support HTML5 video.
+      <source src={require("./img/Judd_Family_Lifestyle.mp4")} type="video/mp4"/> Your browser does not support HTML5 video.
     </video>
   </div>
 
@@ -47,7 +47,7 @@ class LandingManager extends React.Component {
                    presented in an organized order with some flair? We thought it was time to bring it into the digital age…</p>
             </div>
 
-              <img className="bigDeal col-md-9" src="./img/simple_browser.png" alt=""/>
+              <img className="bigDeal col-md-9" src={require("./img/simple_browser.png")} alt=""/>
               <video autoplay muted loop id="myVideo">
                   <source src="./img/textDummy.mov" type="video/mov"/> Your browser does not support HTML5 video.
                 </video>
@@ -87,7 +87,7 @@ class LandingManager extends React.Component {
         <div className="giveMeSpace">
           <div>
 
-              <img className="bigDeal col-md-9" src="../img/simple_browser.png" alt=""/>
+              <img className="bigDeal col-md-9" src={require("./img/simple_browser.png")} alt=""/>
 
 
             <div className="bigDealText col-md-4">
