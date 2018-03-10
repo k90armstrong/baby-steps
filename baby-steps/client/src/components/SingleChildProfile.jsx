@@ -34,7 +34,7 @@ class SingleChildProfile extends React.Component {
 		<div className="container">
 
 			{/* <!-- Trigger the modal with a button --> */}
-			<button id="add-event-btn" type="button" className="btn btn-default big-btn btn-info btn-lg addEvent" onClick={this.props.handleClick} data-toggle="modal" data-target="#addModal">+ ADD EVENT{this.props.label}</button>
+			<button id="add-event-btn" type="button" className="btn btn-default big-btn btn-info btn-lg addEvent" data-toggle="modal" data-target="#addModal">+ ADD EVENT</button>
 
 			{/* <!-- Modal --> */}
 			<div className="modal fade" id="addModal" role="dialog">
@@ -87,7 +87,7 @@ class SingleChildProfile extends React.Component {
 
 	<div className="container">
 		{/* <!-- this is the childs profile --> */}
-		<div className="container">
+		<div className="container aboutWidth">
 			<div className="col col-md-2" style={grayLord}>
 				<div>
 					<div className="card">
@@ -108,10 +108,10 @@ class SingleChildProfile extends React.Component {
 
 
 			{/* <!-- this is the timeline --> */}
-			<div className="col col-md-6" style={grayLord}>
+			<div className="col col-md-9" style={grayLord}>
 				<div className="container">
 
-					<section id="cd-timeline" className="cd-container">
+					<section id="cd-timeline" className="cd-container containerTimeline">
 						{/* <!-- ALL TIMELINE STUFF GETS ADDED HERE DYNAMICALLY --> */}
 					</section>
 					{/* <!-- cd-timeline --> */}
