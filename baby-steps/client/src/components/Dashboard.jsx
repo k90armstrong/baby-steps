@@ -10,6 +10,9 @@ import InviteFamilyMember from '../family/components/InviteFamilyMember';
 import AddFamily from '../family/components/AddFamily';
 import SnackBarNotification from '../components/SnackBarNotification';
 import Confirm from '../components/Confirm';
+// not sure we need this on this page.
+// import './styles/dashboard.css' 
+
 
 class Dashboard extends React.Component {
 

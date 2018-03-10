@@ -4,7 +4,7 @@ import LinearProgress from 'material-ui/LinearProgress';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import styles from '../styles/addFamily.css';
-import * as FilePond from 'filepond';
+// import * as FilePond from 'filepond';
 import { api } from '../../api';
 
 class AddFamily extends React.Component {
@@ -32,7 +32,7 @@ class AddFamily extends React.Component {
     componentWillMount() {
       console.log('i am running!')
       let inputElements = document.getElementsByClassName('filepond');
-      let filePond = FilePond.create(inputElements[0]);
+      // let filePond = FilePond.create(inputElements[0]);
       console.log(inputElements);
     }
 
