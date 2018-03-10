@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { api } from '../api';
 import SingleChildProfile from '../components/SingleChildProfile';
 
+
 class ChildProfileManager extends React.Component {
 
   render() {
