@@ -163,7 +163,11 @@ class Dashboard extends React.Component {
       }
     })
   }
+handleChildClick = (child)=>{
+ this.props.history.push('/app/child-profile/'+child.id)
 
+  
+}
   render() {
     return (
       <div>
@@ -179,7 +183,8 @@ class Dashboard extends React.Component {
                 family={family}
                 handleFamilyDeleteClick={this.handleFamilyDeleteClick}
                 handleFamilyInviteClick={this.handleFamilyInviteClick}
-                handleAddChildClick={this.handleAddChildClick}                
+                handleAddChildClick={this.handleAddChildClick}  
+                handleChildClick={this.handleChildClick}              
               />
             );
           })}
