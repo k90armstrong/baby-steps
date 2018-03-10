@@ -16,7 +16,7 @@ const smallYep = {
 }
 
 
-class LandingManager extends React.Component {
+class SingleChildProfile extends React.Component {
   constructor(props) {
     super(props);
     console.log(props);
@@ -25,9 +25,11 @@ class LandingManager extends React.Component {
   render() {
     return (
       <div>
-        <BAppBar />
+        <BAppBar 
+        accountClicked={()=>this.props.history.push('/app/myaccount')}
+        logoutSuccess={this.props.loadedUser}/>
 
-        <div>
+        {/* <div>
           Hello Welcome to Baby Steps
         </div>
         <div>
@@ -35,7 +37,7 @@ class LandingManager extends React.Component {
         </div>
         <div>
           <Link to="/signup">Signup Here</Link>
-        </div>
+        </div> */}
 
 <div className="wrapper">
 		<div className="container">
@@ -174,4 +176,4 @@ class LandingManager extends React.Component {
   }
 }
 
-export default LandingManager;
+export default SingleChildProfile;
