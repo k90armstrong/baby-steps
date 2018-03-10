@@ -30,7 +30,7 @@ class LandingManager extends React.Component {
 
   <div className="babyStepsText">
     <h2 className="largBaby">Welcome to</h2>
-    <p className="babyStepsWords">Baby Steps</p>
+    <p className="babyStepsWords largBaby2">Baby Steps</p>
     {/* <!-- <p>saving the moments that mean the most to you!</p> --> */}
   </div>
 
@@ -87,7 +87,7 @@ class LandingManager extends React.Component {
         <div className="giveMeSpace">
           <div>
 
-              <img className="bigDeal col-md-9" src={require("./img/simple_browser.png")} alt=""/>
+              <img className="bigDeal2 col-md-9" src={require("./img/simple_browser.png")} alt=""/>
 
 
             <div className="bigDealText col-md-4">
