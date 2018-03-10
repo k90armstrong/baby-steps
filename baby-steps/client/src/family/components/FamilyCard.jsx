@@ -66,6 +66,7 @@ class FamilyCard extends React.Component {
       return(
         <Chip
         style={{margin:7}}
+        onClick={()=>this.props.handleChildClick(child)}
         >
           <Avatar src={child.Images[0].url} /> 
           {child.firstname}
