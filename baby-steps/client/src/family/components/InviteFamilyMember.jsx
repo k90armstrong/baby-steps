@@ -54,7 +54,7 @@ class InviteFamilyMember extends React.Component {
                 </Paper>
               </div>
               <div style={{
-                zIndex: 2000,
+                zIndex: 1000,
                 position: 'fixed',
                 top: 0,
                 left: 0,

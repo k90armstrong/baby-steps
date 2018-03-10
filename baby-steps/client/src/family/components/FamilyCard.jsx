@@ -84,8 +84,7 @@ class FamilyCard extends React.Component {
               
                 {/* <IconButton><MoreVertIcon /></IconButton> */}
                 <CardMedia>
-                  
-                <img src="http://www.mentalhealthy.co.uk/sites/default/files/bigstock_Cartoon_Family_Tree_7532794.jpg" alt="" width={30} height={140} />
+                  <img src={this.state.family.Images[0].url} style={{height: 300}} />
                 </CardMedia>
                 </Card>
                 <IconMenu
@@ -110,7 +109,6 @@ class FamilyCard extends React.Component {
           
                 { children }
                 </Chip>
-                
                   <FlatButton 
                     label={'Invite Family Member'} primary={true}
                     onClick={()=>this.props.handleFamilyInviteClick(this.state.family)}
@@ -121,6 +119,10 @@ class FamilyCard extends React.Component {
                   <FlatButton 
                     label={'Delete Family'} primary={true}
                     onClick={()=>this.props.handleFamilyDeleteClick(this.state.family)}
+                  />
+                  <FlatButton 
+                    label={'Add Child'}
+                    onClick={()=>this.props.handleAddChildClick(this.state.family)}
                   />
               </div>
               

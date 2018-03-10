@@ -1,6 +1,5 @@
 // src/components/AppRoutes.js
 import React from 'react';
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MyFamilyManager from './MyFamilyManager';
