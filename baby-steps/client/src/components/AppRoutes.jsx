@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import MyFamilyManager from './MyFamilyManager';
+import ChildProfileManager from './ChildProfileManager';
 import Login from '../user/components/Login';
 import Signup from '../user/components/Signup';
 import AccountManager from '../user/components/AccountManager';
@@ -35,7 +35,7 @@ class AppRoutes extends React.Component {
       <div>
         <BrowserRouter onUpdate={() => window.scrollTo(0, 0)} >
           <Switch>
-            <PrivateRoute path="/app/myfamily/:id" component={MyFamilyManager} user={user} loadedUser={this.props.loadedUser}/>
+            <PrivateRoute path="/app/child-profile/:id" component={ChildProfileManager} user={user} loadedUser={this.props.loadedUser}/>
             <PrivateRoute path="/app/myaccount" component={AccountManager} user={user} loadedUser={this.props.loadedUser}/>         
             <PrivateRoute path="/app" component={Dashboard} user={user} loadedUser={this.props.loadedUser}/>              
             <Route exact path="/" component={LandingManager}/>  

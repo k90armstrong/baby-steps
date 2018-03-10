@@ -6,7 +6,7 @@ import { loadedUser } from '../user/actions';
 import { connect } from 'react-redux';
 import { api } from '../api';
 
-class MyFamilyManager extends React.Component {
+class ChildProfileManager extends React.Component {
 
   render() {
     return (
@@ -27,4 +27,4 @@ export default connect(
   {
     loadedUser
   }
-)(MyFamilyManager);
+)(ChildProfileManager);

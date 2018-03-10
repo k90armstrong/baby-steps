@@ -113,7 +113,7 @@ class AddChild extends React.Component {
                         openToYearSelection={true} 
                         onChange={this.handleDateChanged}
                       />
-                      <input className='filepond' type='file' onChange={this.handleImageUpload}/>
+                      <input className='filepond' type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/>
                     </div>
                     <div className={'actions'}>
                       <FlatButton 
@@ -132,6 +132,7 @@ class AddChild extends React.Component {
               </div>
               <div style={{
                 zIndex: 1000,
+                
                 position: 'fixed',
                 top: 0,
                 left: 0,

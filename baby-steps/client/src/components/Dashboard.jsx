@@ -5,6 +5,9 @@ import BAppBar from '../components/BAppBar';
 import { loadedUser } from '../user/actions';
 import { connect } from 'react-redux';
 import { api } from '../api';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FamilyCard from '../family/components/FamilyCard';
 import AddChild from '../child/components/AddChild';
 import InviteFamilyMember from '../family/components/InviteFamilyMember';
@@ -35,6 +38,7 @@ class Dashboard extends React.Component {
   }
 
   loadedFamilies = (families) => {
+    console.log(families);
     this.setState({ families });
   }
 
@@ -179,11 +183,24 @@ class Dashboard extends React.Component {
               />
             );
           })}
-          <FamilyCard
-            key={'add'}
-            handleAddFamily={()=>this.toggleModal('addFamily')}
-          />
         </div>
+        <div>
+              {/* <FlatButton  */}
+              <div style={{ position:"absolute",top:100,left:500,width:300,height:90}}>
+              
+              
+  
+              
+              <FloatingActionButton style={{color:"blue"}} onClick={()=>this.toggleModal('addFamily')}>
+              <ContentAdd />
+              
+            
+                label={'Add Family'}
+                
+                </FloatingActionButton>
+              Add Family
+            </div>
+            </div>
         <Confirm 
           title={'Delete Family'}
           handleClose={()=>this.toggleModal('deleteFamily')}
