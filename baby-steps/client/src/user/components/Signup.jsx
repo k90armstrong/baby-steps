@@ -55,7 +55,7 @@ class Signup extends React.Component {
 			if (user.status === 'active') {
 				localStorage.setItem('email', user.email);
 				this.props.loginSuccess(user);
-				this.props.history.push('/myfamily');
+				this.props.history.push('/app');
 			} else {
 				this.setState({ failedSignup: true });
 			}

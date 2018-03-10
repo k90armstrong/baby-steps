@@ -6,6 +6,7 @@ import { loadedUser } from '../user/actions';
 import { connect } from 'react-redux';
 import { api } from '../api';
 import FamilyCard from '../family/components/FamilyCard';
+import AddChild from '../child/components/AddChild';
 import InviteFamilyMember from '../family/components/InviteFamilyMember';
 import AddFamily from '../family/components/AddFamily';
 import SnackBarNotification from '../components/SnackBarNotification';
@@ -23,7 +24,8 @@ class Dashboard extends React.Component {
       modal: {
         deleteFamily: false,
         inviteFamily: false,
-        addFamily: false
+        addFamily: false,
+        addChild: false
       },
       snackbar: {
         open: false,
@@ -94,7 +96,7 @@ class Dashboard extends React.Component {
 
   handleAddFamily = (familyInfo) => {
     let formData = new FormData();
-    formData.append('image', familyInfo.file);
+    formData.append('image', familyInfo.picture);
     formData.append('name', familyInfo.name);
     api.family.add(formData, 
       (response)=>{
@@ -103,6 +105,33 @@ class Dashboard extends React.Component {
         this.loadFamilies();
     }, (response)=>{
       this.showSnackbar('Sorry there was an error creating a family');
+    });
+  }
+
+  handleAddChildClick = (family) => {
+    this.setState({
+      activeFamily: family
+    }, ()=>this.toggleModal('addChild'))
+  }
+
+  handleAddChild = (childInfo) => {
+    let formData = new FormData();
+    formData.append('image', childInfo.file);
+    formData.append('firstname', childInfo.firstname);
+    formData.append('lastname', childInfo.lastname);
+    formData.append('weight', childInfo.weight);
+    formData.append('height', childInfo.height);
+    formData.append('hospitalborn', childInfo.hospitalborn);
+    formData.append('gender', childInfo.gender);
+    formData.append('birthdate', childInfo.birthdate);
+    formData.append('familyId', this.state.activeFamily.id); 
+    api.child.add(formData, 
+      (response)=>{
+        this.toggleModal('addChild');
+        this.showSnackbar('Success! Start saving memories!');
+        this.loadFamilies();
+    }, (response)=>{
+      this.showSnackbar('Sorry there was an error creating a child');
     });
   }
 
@@ -146,6 +175,7 @@ class Dashboard extends React.Component {
                 family={family}
                 handleFamilyDeleteClick={this.handleFamilyDeleteClick}
                 handleFamilyInviteClick={this.handleFamilyInviteClick}
+                handleAddChildClick={this.handleAddChildClick}                
               />
             );
           })}
@@ -178,6 +208,11 @@ class Dashboard extends React.Component {
           onRequestClose={this.handleSnackbarRequestClose}
           message={this.state.snackbar.message}
           open={this.state.snackbar.open}
+        />
+        <AddChild 
+          open={this.state.modal.addChild}
+          handleClose={()=>this.toggleModal('addChild')}
+          handleSubmit={this.handleAddChild}          
         />
       </div>
     );
