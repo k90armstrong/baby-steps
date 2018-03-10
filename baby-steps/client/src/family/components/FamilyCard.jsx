@@ -7,7 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
@@ -62,94 +62,66 @@ class FamilyCard extends React.Component {
         
        
       
-      const children = data.map(child =>{
-        return <div> {child.name}</div>
+    const children = this.state.family.Children.map(child =>{
+      return(
+        <Chip
+        style={{margin:7}}
+        >
+          <Avatar src={child.Images[0].url} /> 
+          {child.firstname}
+      </Chip>
+      );
+    });
       
-        })
+    return (
       
-			return (
-        
-        
-      <div style={{ width: 300, margin: 10 ,textAlign:'center',fontSize:18}}>
       
-          <Paper>
-            
-            {this.state.family && 
-              <div>
-             <Card>
-              
-
-              <div>{this.state.family.name} Family</div>
-              
-              
-                {/* <IconButton><MoreVertIcon /></IconButton> */}
-                <CardMedia>
-                  <img src={this.state.family.Images[0].url} style={{height: 300}} />
-                </CardMedia>
-                </Card>
-                <IconMenu
-                    style={{float:"right"}}
-                  iconButtonElement={
-                    <IconButton><MoreVertIcon /></IconButton>
-                  }
-                  targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                  anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                >
-                  <MenuItem primaryText="Share" />
-                  <MenuItem primaryText="Delete" />
-                  
-                </IconMenu>
-                <Chip
-                style={{margin:7}}
-                >
-
-              
-                
-            <Avatar src="https://images-na.ssl-images-amazon.com/images/G/01/books/burnsj/SmilingBaby._V358926112_.jpg" /> 
-          
-                { children }
-                </Chip>
-                  <FlatButton 
-                    label={'Invite Family Member'} primary={true}
-                    onClick={()=>this.props.handleFamilyInviteClick(this.state.family)}
-                  />
-                  <FlatButton 
-                    label={'View Family'} primary={true}
-                  />
-                  <FlatButton 
-                    label={'Delete Family'} primary={true}
-                    onClick={()=>this.props.handleFamilyDeleteClick(this.state.family)}
-                  />
-                  <FlatButton 
-                    label={'Add Child'}
-                    onClick={()=>this.props.handleAddChildClick(this.state.family)}
-                  />
-              </div>
-              
-            }
-            {!this.state.family && 
-              <div>
-                {/* <FlatButton  */}
-                <div style={{ position:"absolute",top:100,left:500,width:300,height:90}}>
-                
-                
+    <div style={{ width: 300, margin: 10 ,textAlign:'center',fontSize:18}}>
     
+        <Paper>
+          
+          {this.state.family && 
+            <div>
+            <Card>
+            
+
+            <div>{this.state.family.name} Family</div>
+            
+            
+              {/* <IconButton><MoreVertIcon /></IconButton> */}
+              <CardMedia>
+                <img src={this.state.family.Images[0].url} style={{height: 300}} />
+              </CardMedia>
+              </Card>
+              <IconMenu
+                  style={{float:"right"}}
+                iconButtonElement={
+                  <IconButton><MoreVertIcon /></IconButton>
+                }
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+              >
+                <MenuItem primaryText="Invite Family Member"  onClick={()=>this.props.handleFamilyInviteClick(this.state.family)}/>
+                <MenuItem primaryText="Delete" onClick={()=>this.props.handleFamilyDeleteClick(this.state.family)} />
                 
-                <FloatingActionButton style={{color:"blue"}}>
-                <ContentAdd />
                 
+              </IconMenu>
+              {children}
               
-                  label={'Add Family'}
-                  onClick={()=>this.props.handleAddFamily()}
-                  </FloatingActionButton>
-                Add Family
-              </div>
-              </div>
-            }
-          </Paper>
-        </div>
-			);
-    }
+                
+                
+                <FlatButton 
+                  label={'Add Child'} primary={true}
+                  onClick={()=>this.props.handleAddChildClick(this.state.family)}
+                />
+            </div>
+            
+          }
+          
+        </Paper>
+      </div>
+    );
+  }
 }
 
 export default FamilyCard;

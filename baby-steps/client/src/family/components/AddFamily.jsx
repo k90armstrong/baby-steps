@@ -53,7 +53,8 @@ class AddFamily extends React.Component {
                         floatingLabelText={"Family Name"}
                         name={"name"}
                       />
-                      <input className='filepond' type='file' onChange={this.handleImageUpload}/>
+                      <input className='filepond' type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/>
+
                     </div>
                     <div className={'actions'}>
                       <FlatButton 
