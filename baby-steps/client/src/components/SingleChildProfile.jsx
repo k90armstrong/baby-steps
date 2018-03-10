@@ -22,7 +22,10 @@ class SingleChildProfile extends React.Component {
   constructor(props) {
     super(props);
     console.log(props);
-  }
+	}
+	handleAddEvent=()=>{
+		
+	}
 
   render() {
     return (
