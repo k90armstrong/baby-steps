@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+const headerConfig = {
+  headers: { 'content-type': 'multipart/form-data' }
+}
+
 
 export const api = {
   user: {
@@ -105,10 +109,8 @@ export const api = {
       });
     },
     add: (formData, cb, catchCb) => {
-      const config = {
-        headers: { 'content-type': 'multipart/form-data' }
-      }
-      axios.post('/api/family/create', formData, config)
+      console.log(formData);
+      axios.post('/api/family/create', formData, headerConfig)
       .then((response)=>{
         if (response.data.message === 'success') {
           cb(response.data);
@@ -129,6 +131,34 @@ export const api = {
       })
       .catch(response=>{
         catchCB(response);
+      });
+    },
+    respond: (inviteId, accept, cb, catchCb) => {
+      axios.post('/api/invite/respond', {inviteId, accept})
+      .then(response=>{
+        if (response.data.message === 'success') {
+          cb(response.data);
+        } else {
+          catchCb(response);
+        }
+      })
+      .catch(()=>{
+        catchCb();
+      });
+    }
+  },
+  child: {
+    add: (formData, cb, catchCb) => {
+      axios.post('/api/child/create', formData, headerConfig)
+      .then((response)=>{
+        if (response.data.message === 'success') {
+          cb(response.data);
+        } else {
+          catchCb(response);  
+        }
+      })
+      .catch((response)=>{
+        catchCb(response);
       });
     }
   }

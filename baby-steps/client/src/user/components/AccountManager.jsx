@@ -28,6 +28,14 @@ class AccountManager extends React.Component {
     });
   }
 
+  handleAcceptInvitation = (invite) => {
+    api.invites.respond(invite.id, 'accept', this.getInvites, this.getInvites);
+  }
+
+  handleDenyInvitation = (invite) => {
+    api.invites.respond(invite.id, null, this.getInvites, this.getInvites);
+  }
+
   render() {
     return (
       <div>
@@ -40,6 +48,8 @@ class AccountManager extends React.Component {
         {this.state.invites.length > 0 && 
           <Invites 
             invites={this.state.invites}
+            handleAccept={this.handleAcceptInvitation}
+            handleDeny={this.handleDenyInvitation}            
           />
         }
       </div>
