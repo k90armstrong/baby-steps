@@ -257,52 +257,35 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/events', function (req, res) {
-    upload(req,res,function(err) {
-      console.log(req.body);
-      console.log(req.files);
-    // var childId = req.body.childId;
-     // var userId = req.user.id;
-    var images=[];
-    // var img_name ="";
-      for (i = 0; i < req.files.length; i++) {
-        images.push({url:req.files[i].filename})
-  //       console.log("filename =" + req.files[i].filename);
- // img_name +=  req.files[i].filename + ";";
-}
-// console.log("Image name string = "+img_name);
-      if(err) {
-         console.log(err);
-          return res.end("Error uploading file.");
-      }   
-// var sql = "INSERT INTO `children`(`image`) VALUES ('" + img_loc_on_server + "')";
-
-
-    // console.log("users_image", req.body);
     var event = {
       title: req.body.title,
       description: req.body.description,
       story: req.body.story,
       date: req.body.date,
-      
-      
       ChildId: req.body.childId
       // ChildId: uId
     }
-    db.Event.create(event).then(function (dbEvent) {
-      for(i=0;i<images.length;i++){
-        images[i].EventId = dbEvent.id
-      }
-      return db.Image.bulkCreate(images)
-
-      
-    }).then(function(res){
-      res.json({message:'success'
-
+    if (req.user) {
+      let familyId;
+      uploadToCloudinary(req.files.image, (imageInfo)=>{
+        db.Event.create(event)
+        .then(event => {
+          eventId = event.id;
+          return event.addUser(req.user.id, {through: {role: 'manager'}});
+        })
+        .then(()=>{
+          return db.Image.create({
+            EventId: eventId, 
+            url: imageInfo.url,
+            secureUrl: imageInfo.secure_url,
+            publicId: imageInfo.public_id
+          });
+        })
+        .then(()=>res.json({message: 'success'}))
+        .catch(()=>res.json({message: 'error'}))
       });
-    }).catch(error=>res.json({message:'there was a error'}));
+    }
   });
-
-});
     
     
 
