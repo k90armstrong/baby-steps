@@ -59,7 +59,7 @@ class LandingManager extends React.Component {
     <div className="story">
       <div className="bg"></div>
       {/* <!-- <img className="bigDeal col-md-6" src="../img/mac.png" alt=""> --> */}
-      <div className="float-right">
+      <div className="float-left">
 
         <h2>How many pictures do you have?!</h2>
         <p>...Per an Info Trends study, more than 3.9 TRILLION photos were captured and stored on hard drives in 2017, and that
