@@ -9,6 +9,18 @@
   z-index: -1;
 }
 
+#myVideo1 {
+  z-index: 100;
+  width: 55%;
+  margin-top: 26px;
+}
+
+#myVideo2 {
+  z-index: 100;
+  width: 55%;
+  margin-top: 26px;
+}
+
 /* Add some content at the bottom of the video/page */
 .content {
   position: fixed;
@@ -70,7 +82,7 @@
   /* border:7px solid rgb(190, 252, 238); */
   width: 56% !important;
   padding: 0px !important;
-  margin-top: -158px;
+  margin-top: -211px;
 }
 
 .bigDeal2 {
@@ -97,7 +109,7 @@
   margin-top: 12px;
   margin-bottom: 31px;
   /* margin-left: 111px; */
-  width: 70%;
+  width: 45%;
 }
 
 .overFlow {
@@ -212,7 +224,7 @@ h2 {
 }
 
 #second2 {
-  background: url("../img/Remington-7.jpg") 50% 0 no-repeat fixed;
+  background: url("../img/babySteps1.png") 50% 0 no-repeat fixed;
   /* background-color: black; */
   background-size: cover;
   /* color: white; */
@@ -224,7 +236,7 @@ h2 {
 }
 
 #second {
-  background: url("../img/white2.jpg") 50% 0 no-repeat fixed;
+  background: url("../img/babySteps4.png") 50% 0 no-repeat fixed;
   /* background-color: black; */
   background-size: cover;
   /* color: white; */
