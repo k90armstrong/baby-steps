@@ -59,7 +59,7 @@ class LandingManager extends React.Component {
     <div className="story">
       <div className="bg"></div>
       {/* <!-- <img className="bigDeal col-md-6" src="../img/mac.png" alt=""> --> */}
-      <div className="float-left">
+      <div className="float-right">
 
         <h2>How many pictures do you have?!</h2>
         <p>...Per an Info Trends study, more than 3.9 TRILLION photos were captured and stored on hard drives in 2017, and that
@@ -111,7 +111,7 @@ class LandingManager extends React.Component {
     <div className="story">
       <div className="bg"></div>
       {/* <!-- <img className="bigDeal col-md-6" src="../img/mac.png" alt=""> --> */}
-      <div className="float-left">
+      <div className="float-right">
 
         <h2>How many pictures do you have?!</h2>
         <p>...Per an Info Trends study, more than 3.9 TRILLION photos were captured and stored on hard drives in 2017, and that
@@ -130,9 +130,6 @@ class LandingManager extends React.Component {
 
   <footer className="footer">
     <p>Posted by: The good people who brought you Writer's Block</p>
-    <p>Contact information:
-      <a href="mailto:someone@example.com">
-        someone@example.com</a>.</p>
   </footer>
 </div>
 
