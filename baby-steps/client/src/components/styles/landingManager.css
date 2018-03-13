@@ -119,6 +119,7 @@
 .footer {
   background-color: white !important;
   z-index: 40;
+  margin-top: 0px;
   /* background-color: white; */
   /* height: 62px; */
 }
@@ -172,6 +173,7 @@ h2 {
 .float-left {
   float: left;
   margin: 0 0 0 20px;
+
 }
 
 .float-right {
@@ -298,9 +300,12 @@ h2 {
 
 .story .float-left,
 .story .float-right {
-  padding: 100px 0 0 0;
+  /* padding: 100px 0 0 0; */
   position: relative;
-  width: 350px;
+  width: 393px;
+  background-color: white;
+  margin-top: 100px;
+  padding: 18px;
 }
 
 .giveMeSpace {
