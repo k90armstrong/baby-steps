@@ -263,17 +263,14 @@ module.exports = function(app, passport) {
       story: req.body.story,
       date: req.body.date,
       ChildId: req.body.childId
-      // ChildId: uId
     }
+    console.log(event);
     if (req.user) {
-      let familyId;
+      let eventId;
       uploadToCloudinary(req.files.image, (imageInfo)=>{
         db.Event.create(event)
-        .then(event => {
+        .then((event)=>{
           eventId = event.id;
-          return event.addUser(req.user.id, {through: {role: 'manager'}});
-        })
-        .then(()=>{
           return db.Image.create({
             EventId: eventId, 
             url: imageInfo.url,

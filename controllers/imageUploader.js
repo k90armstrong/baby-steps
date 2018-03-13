@@ -8,8 +8,6 @@ cloudinary.config({
 
 const uploadImage = function(imageData, cb) {
   cloudinary.v2.uploader.upload_stream({resource_type: 'raw'}, function(error, result) {
-    console.log(error);
-    console.log(result);
     cb(result);
     }).end(imageData.data);
 }

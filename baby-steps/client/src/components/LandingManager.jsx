@@ -24,7 +24,7 @@ class LandingManager extends React.Component {
 
 <div className="container">
     <video autoPlay muted loop id="myVideo">
-      <source src={require("./img/Judd_Family_Lifestyle.mp4")} type="video/mp4"/> Your browser does not support HTML5 video.
+      <source src={'https://res.cloudinary.com/hdu8kwht0/video/upload/v1520905039/Judd_Family_LifestyleTrim2.mp4'} type="video/mp4"/> Your browser does not support HTML5 video.
     </video>
   </div>
 

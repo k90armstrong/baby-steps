@@ -173,7 +173,17 @@ export const api = {
   },
   event: {
     add: (formData, cb, catchCb) => {
-      axios.post('/api/event')
+      axios.post('/api/event', formData, headerConfig)
+      .then((response)=>{
+        if (response.data.message === 'success') {
+          cb(response.data);
+        } else {
+          catchCb(response);  
+        }
+      })
+      .catch((response)=>{
+        catchCb(response);
+      });
     }
   }
 }

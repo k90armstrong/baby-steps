@@ -37,7 +37,7 @@ class SingleChildProfile extends React.Component {
 		<div className="container">
 
 			{/* <!-- Trigger the modal with a button --> */}
-			<button id="add-event-btn" type="button" className="btn btn-default big-btn btn-info btn-lg addEvent" data-toggle="modal" data-target="#addModal">+ ADD EVENT</button>
+			<button onClick={this.props.handleAddEventClick} id="add-event-btn" type="button" className="btn btn-default big-btn btn-info btn-lg addEvent" data-toggle="modal" data-target="#addModal">+ ADD EVENT</button>
 
 			{/* <!-- Modal --> */}
 			<div className="modal fade" id="addModal" role="dialog">
