@@ -551,8 +551,15 @@ span {
 
 
 .container {
-  width: 1184px !important;
+  width: 1401px !important;
 }
+
+.containerTimeline {
+  width: 70%;
+  background-color: pink;
+  margin-left: -3px;
+}
+
 
 .col-container {
   display: table; /* Make the container element behave like a table */
@@ -632,6 +639,10 @@ body {
   text-align: center;
   background: #ddd;
   margin-top: 20px;
+}
+
+.aboutWidth {
+  width: 22.666667%;
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
