@@ -46,14 +46,15 @@ class SingleChildProfile extends React.Component {
 
   render() {
 		var end = moment();
-		var duration = moment.duration(end.diff(this.props.child.birthday));
+		var duration = moment.duration(end.diff(moment(this.props.child.birthdate)));
 			let age = duration.asMonths();
+			age = Math.floor(age);
 			let ageDisplay;
 			if (age > 24) {
 				age = duration.asYears();
-				ageDisplay = age + 'years';
+				ageDisplay = age + ' years';
 			} else {
-				ageDisplay = age + 'months';
+				ageDisplay = age + ' months';
 			}
     return (
 			
@@ -118,12 +119,12 @@ class SingleChildProfile extends React.Component {
 
 	<div className="container">
 		{/* <!-- this is the childs profile --> */}
-		<div className="container aboutWidth">
+		<div style={{width: '100%'}} className="container aboutWidth">
 			<div className="col col-md-2" style={grayLord}>
 				<div>
 					<div className="card">
 						<h1 id="kidsName">{this.props.child.firstname}</h1>
-						<div className="fakeimg" style={smallYep}>
+						<div className="fakeimg">
 							<img src={this.props.child.Images ? this.props.child.Images[0].url : ''}/>
 						</div>
 					</div>
@@ -138,9 +139,8 @@ class SingleChildProfile extends React.Component {
 
 			{/* <!-- this is the timeline --> */}
 			<div className="col col-md-9" style={grayLord}>
-				<div className="container">
+				<div style={{ width: '100%' }} className="container">
 
-					<section id="cd-timeline" className="cd-container containerTimeline">
 						{/* <!-- ALL TIMELINE STUFF GETS ADDED HERE DYNAMICALLY --> */}
 						<Timeline>
 						{this.props.child.Events && this.props.child.Events.map(event=>{
@@ -160,7 +160,6 @@ class SingleChildProfile extends React.Component {
 							})}
 						</Timeline>
 						
-					</section>
 					{/* <!-- cd-timeline --> */}
 				</div>
 			</div>
