@@ -31,7 +31,19 @@ class SingleChildProfile extends React.Component {
 	}
 
   render() {
+		var end = moment();
+		var duration = moment.duration(end.diff(this.props.child.birthday));
+			let age = duration.asMonths();
+			let ageDisplay;
+			if (age > 24) {
+				age = duration.asYears();
+				ageDisplay = age + 'years';
+			} else {
+				ageDisplay = age + 'months';
+			}
     return (
+			
+
       <div>
 
        
@@ -97,17 +109,15 @@ class SingleChildProfile extends React.Component {
 			<div className="col col-md-2" style={grayLord}>
 				<div>
 					<div className="card">
-						<h1 id="kidsName">Name</h1>
-						<div className="fakeimg" style={smallYep}>Image</div>
-						<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+						<h1 id="kidsName">{this.props.child.firstname}</h1>
+						<div className="fakeimg" style={smallYep}>
+							<img src={this.props.child.Images ? this.props.child.Images[0].url : ''}/>
+						</div>
 					</div>
 					<div className="card">
-						<span>Weight: </span>
-						<span id="weight"></span>
-						<span>Length: </span>
-						<span id="length"></span>
-						<span>Birthday: </span>
-						<span id="birthday"></span>
+						<div>Weight: {this.props.child.weight}</div>
+						<div>Length: {this.props.child.height}</div>
+						<div>Age: {ageDisplay}</div>
 					</div>
 				</div>
 			</div>
