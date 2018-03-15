@@ -5251,6 +5251,12 @@ react-event-listener@^0.5.1:
     prop-types "^15.6.0"
     warning "^3.0.0"
 
+react-event-timeline@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-event-timeline/-/react-event-timeline-1.5.1.tgz#55d6b19138115178eadd47ae7352eedcc171bae9"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"

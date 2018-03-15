@@ -30,6 +30,20 @@ class SingleChildProfile extends React.Component {
 		
 	}
 
+	printButton = (child) => {
+		if (!child || !child.Images ||  child.Images.length < 1) {
+			return null;
+		}
+
+		const canvasPopAPIKey = "0e524556d32c94abbef0d0b058c58a1c";
+		const imageUrl = child.Images[0].url;
+
+		const printableUrl = "https://store.canvaspop.com/api/pull?image_url=" + imageUrl + "&access_key=" + canvasPopAPIKey;
+	
+		return <a href={printableUrl} target="_blank"><button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
+		 data-target="">Print</button></a>
+	}
+
   render() {
 		var end = moment();
 		var duration = moment.duration(end.diff(this.props.child.birthday));
@@ -96,8 +110,7 @@ class SingleChildProfile extends React.Component {
 			</div>
 		</div>
 
-		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
-		 data-target="">Print</button>
+		{this.printButton(this.props.child)}
 		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg btnColorSize" data-toggle="modal" data-target="">Share</button>
 
 	</div>
