@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BAppBar from './BAppBar';
-import './styles/bootstrap.3.3.7.css'
-import './styles/singleChildProfile.css'
+import Event from '../child/components/Event';
+import styles from '../components/styles/bootstrap.3.3.7.css'
+import style from '../components/styles/singleChildProfile.css';
 
 
 const imgYep = {
@@ -116,6 +117,14 @@ class SingleChildProfile extends React.Component {
 
 					<section id="cd-timeline" className="cd-container containerTimeline">
 						{/* <!-- ALL TIMELINE STUFF GETS ADDED HERE DYNAMICALLY --> */}
+						{this.props.child.Events && this.props.child.Events.map(event=>{
+
+							return (
+								<Event 
+									event={event}
+								/>
+							);
+						})}
 					</section>
 					{/* <!-- cd-timeline --> */}
 				</div>

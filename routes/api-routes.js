@@ -264,7 +264,6 @@ module.exports = function(app, passport) {
       date: req.body.date,
       ChildId: req.body.childId
     }
-    console.log(event);
     if (req.user) {
       let eventId;
       uploadToCloudinary(req.files.image, (imageInfo)=>{
@@ -278,8 +277,8 @@ module.exports = function(app, passport) {
             publicId: imageInfo.public_id
           });
         })
-        .then(()=>res.json({message: 'success'}))
-        .catch(()=>res.json({message: 'error'}))
+        .then(()=>{res.json({message: 'success'})})
+        .catch(()=>{res.json({message: 'error'})})
       });
     }
   });
@@ -343,7 +342,7 @@ module.exports = function(app, passport) {
     });
   });
 
-app.get("/api/childs/:id", function(req, res) {
+app.get("/api/child/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
@@ -351,7 +350,12 @@ app.get("/api/childs/:id", function(req, res) {
       where: {
         id: req.params.id
       },
-      include: [db.Event]
+      include: [
+        db.Image, 
+        {model: db.Event, 
+          include: [db.Image]
+        }
+      ]
     }).then(function(dbChild) {
       res.json(dbChild);
     });

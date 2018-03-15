@@ -15,13 +15,6 @@ class LandingManager extends React.Component {
       <div>
         <BAppBar />
 
-        <div>
-          <Link to="/login">Login Here</Link>
-        </div>
-        <div>
-          <Link to="/signup">Signup Here</Link>
-        </div>
-
 <div className="container">
     <video autoPlay muted loop id="myVideo">
       <source src={'https://res.cloudinary.com/hdu8kwht0/video/upload/v1520905039/Judd_Family_LifestyleTrim2.mp4'} type="video/mp4"/> Your browser does not support HTML5 video.

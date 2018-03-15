@@ -1,6 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import { api } from '../api';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadedUser } from '../user/actions';
 import { user } from '../user/reducers';
@@ -10,6 +11,21 @@ import UserInfoButton from '../user/components/UserInfoButton';
  * A simple example of `AppBar` with an icon on the right.
  * By default, the left icon is a navigation-menu.
  */
+
+const linkStyle = {
+  color: 'white',
+  textDecoration: 'none',
+  marginRight: 15
+};
+
+const Login = () => {
+  return (
+    <div>
+      <Link style={linkStyle} to='/signup'>Signup</Link>
+      <Link style={linkStyle} to='/login'>Login</Link>
+    </div>
+  );
+}
 
 class BAppBar extends React.Component {
   constructor() {
@@ -23,7 +39,7 @@ class BAppBar extends React.Component {
   }
 
   loadUser() {
-    api.user.loadUser(this.props.loadedUser);
+    api.user.loadUser(this.props.loadedUser, ()=>{});
   }
 
   logout() {
@@ -40,12 +56,22 @@ class BAppBar extends React.Component {
 
   }
 
+
+
   render () {
+    let rightElement;
+    if (this.props.account) {
+      if (!this.props.account.error) {
+        rightElement = <UserInfoButton user={this.props.account} accountClicked={this.props.accountClicked} logoutClicked={this.logout} />;
+      } else {
+        rightElement = <Login/>;
+      }
+    }
     return (
       <AppBar
-        title={this.props.account ? this.props.account.firstname : ''}
+        title={<Link style={{ textDecoration: 'none', color: 'white' }} to='/'>Baby Steps</Link>}
         // iconClassNameRight={"fab fa-accessible-icon"}
-        iconElementRight={<UserInfoButton user={this.props.account} accountClicked={this.props.accountClicked} logoutClicked={this.logout} />}
+        iconElementRight={rightElement}
       />
     );
   }

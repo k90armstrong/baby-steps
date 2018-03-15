@@ -6,7 +6,7 @@ class Event extends React.Component {
         return (
             <div className="cd-timeline-block">
                 <div className="cd-timeline-image cd-picture">
-                    <img src={"this.props.event."} />
+                    <img src={this.props.event.Images[0] ? this.props.event.Images[0].url : ''} />
                 </div>
                 <div className="cd-timeline-content">
                     <h2> {this.props.event.title}</h2>

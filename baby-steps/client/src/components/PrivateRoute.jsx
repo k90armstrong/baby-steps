@@ -14,7 +14,7 @@ export const PrivateRoute = ({ component: Component, user: User, loadedUser: loa
     {!User &&
       api.user.loadUser((user)=>{
         loadedUser(user);
-      })
+      }, ()=>{})
     }
   </div>
 );

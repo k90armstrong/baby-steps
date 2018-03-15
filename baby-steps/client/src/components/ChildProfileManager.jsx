@@ -22,10 +22,27 @@ class ChildProfileManager extends React.Component {
       snackbar: {
         open: false,
         message: 'Invite sent!'
-      }
+      },
+      child: {}
     }
   }
 
+  componentDidMount() {
+    this.loadChild();
+  }
+
+  loadChild = () => {
+    api.child.load(this.state.childId, this.loadedChild, this.loadedChildError);
+  }
+
+  loadedChild = (child) => {
+    console.log('child', child);
+    this.setState({child});
+  }
+
+  loadedChildError = () => {
+    console.log('error loading child');
+  }
 
   toggleModal = (type) => {
     this.setState({
@@ -43,13 +60,13 @@ class ChildProfileManager extends React.Component {
     formData.append('date', eventInfo.date);
     formData.append('story', eventInfo.story);
     formData.append('childId', this.state.childId);    
-    api.child.add(formData, 
+    api.event.add(formData, 
       (response)=>{
         this.toggleModal('addChild');
-        this.showSnackbar('Success! Start saving memories!');
-        this.loadFamilies();
+        this.showSnackbar('Success!');
+        this.loadChild();
     }, (response)=>{
-      this.showSnackbar('Sorry there was an error creating a child');
+      this.showSnackbar('Sorry there was an error creating the event');
     });
   }
 
@@ -79,6 +96,7 @@ class ChildProfileManager extends React.Component {
         />
         <SingleChildProfile
           handleAddEventClick={()=>this.toggleModal('addEvent')}
+          child={this.state.child}
         />
         <AddEvent
           open={this.state.modal.addEvent}

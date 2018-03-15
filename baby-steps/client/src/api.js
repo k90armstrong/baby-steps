@@ -161,6 +161,15 @@ export const api = {
         catchCb(response);
       });
     },
+    load: (id, cb, catchCb) => {
+      axios.get('/api/child/'+id)
+      .then((response) =>{
+        cb(response.data);
+      })
+      .catch(()=>{
+        catchCb();
+      })
+    },
     getEvents: (cb, catchCb) => {
       axios.get('/api/child')
       .then((events)=>{
@@ -173,15 +182,18 @@ export const api = {
   },
   event: {
     add: (formData, cb, catchCb) => {
-      axios.post('/api/event', formData, headerConfig)
+      axios.post('/api/events', formData, headerConfig)
       .then((response)=>{
+        console.log(response.data);
         if (response.data.message === 'success') {
+          console.log(response.data.message);          
           cb(response.data);
         } else {
           catchCb(response);  
         }
       })
       .catch((response)=>{
+        console.log('err');
         catchCb(response);
       });
     }
