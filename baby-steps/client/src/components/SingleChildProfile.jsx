@@ -30,13 +30,18 @@ class SingleChildProfile extends React.Component {
 		
 	}
 
-	printableImage = (child) => {
+	printButton = (child) => {
+		if (!child || !child.Images ||  child.Images.length < 1) {
+			return null;
+		}
+
 		const canvasPopAPIKey = "0e524556d32c94abbef0d0b058c58a1c";
-		const imageURL = "";
+		const imageUrl = child.Images[0].url;
 
-		console.log(child);
-
-		return "https://store.canvaspop.com/api/pull?image_url=" + imageURL + "&access_key=" + canvasPopAPIKey;
+		const printableUrl = "https://store.canvaspop.com/api/pull?image_url=" + imageUrl + "&access_key=" + canvasPopAPIKey;
+	
+		return <a href={printableUrl} target="_blank"><button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
+		 data-target="">Print</button></a>
 	}
 
   render() {
@@ -93,8 +98,7 @@ class SingleChildProfile extends React.Component {
 			</div>
 		</div>
 
-		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
-		 data-target=""><a href={this.printableImage(this.props.child)}>Print</a></button>
+		{this.printButton(this.props.child)}
 		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg btnColorSize" data-toggle="modal" data-target="">Share</button>
 
 	</div>
