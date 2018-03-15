@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import BAppBar from './BAppBar';
 import Event from '../child/components/Event';
 import styles from '../components/styles/bootstrap.3.3.7.css'
+import moment from 'moment';
 import style from '../components/styles/singleChildProfile.css';
+import {Timeline, TimelineEvent} from 'react-event-timeline'
 
 
 const imgYep = {
@@ -126,14 +128,24 @@ class SingleChildProfile extends React.Component {
 
 					<section id="cd-timeline" className="cd-container containerTimeline">
 						{/* <!-- ALL TIMELINE STUFF GETS ADDED HERE DYNAMICALLY --> */}
+						<Timeline>
 						{this.props.child.Events && this.props.child.Events.map(event=>{
-
 							return (
-								<Event 
-									event={event}
-								/>
+								<TimelineEvent
+									title={event.title}
+									icon={<i />}
+									iconColor="#6fba1c"
+									createdAt={moment(event.date).format("MMM Do YY")}
+								>
+									<div style={{ display: 'flex' }}>
+										<img style={{ height: '300px', width: 'auto', margin: 10 }} src={event.Images[0] ? event.Images[0].url : ''}/>
+										<p style={{ margin: 10, fontSize: 20 }}>{event.story}</p>
+									</div>
+								</TimelineEvent>
 							);
-						})}
+							})}
+						</Timeline>
+						
 					</section>
 					{/* <!-- cd-timeline --> */}
 				</div>
