@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BAppBar from './BAppBar';
+import BAppBarLanding from './BAppBarLanding';
+import './styles/bootstrap.3.3.7.css'
 import './styles/landingManager.css'
+
 
 
 class LandingManager extends React.Component {
@@ -13,13 +15,13 @@ class LandingManager extends React.Component {
   render() {
     return (
       <div>
-        <BAppBar />
+        <BAppBarLanding />
 
-<div className="container">
-    <video autoPlay muted loop id="myVideo">
-      <source src={'https://res.cloudinary.com/hdu8kwht0/video/upload/v1520905039/Judd_Family_LifestyleTrim2.mp4'} type="video/mp4"/> Your browser does not support HTML5 video.
-    </video>
-  </div>
+ <div className="container">
+     <video autoPlay muted loop id="myVideo">
+       <source src="https://res.cloudinary.com/hdu8kwht0/video/upload/v1520905039/Judd_Family_LifestyleTrim2.mp4" type="video/mp4"/> Your browser does not support HTML5 video.
+     </video>
+   </div>
 
   <div className="babyStepsText">
     <h2 className="largBaby">Welcome to</h2>
@@ -40,11 +42,11 @@ class LandingManager extends React.Component {
                    presented in an organized order with some flair? We thought it was time to bring it into the digital age…</p>
             </div>
 
-              <img className="bigDeal col-md-9" src={require("./img/simple_browser.png")} alt=""/>
-              <video autoplay muted loop id="myVideo">
-                  <source src="./img/textDummy.mov" type="video/mov"/> Your browser does not support HTML5 video.
-                </video>
-              
+              {/* <img className="bigDeal col-md-9" src={require("./img/simple_browser.png")} alt=""/> */}
+              <video playsinline autoPlay muted loop id="myVideo1">
+                <source className="bigDeal col-md-9" src={require("./img/textDummy.mov")} type="video/mp4"/> Your browser does not support HTML5 video.
+              </video>
+
           </span>
         </div>
       </div>
@@ -80,8 +82,10 @@ class LandingManager extends React.Component {
         <div className="giveMeSpace">
           <div>
 
-              <img className="bigDeal2 col-md-9" src={require("./img/simple_browser.png")} alt=""/>
-
+              {/* <img className="bigDeal2 col-md-9" src={require("./img/simple_browser.png")} alt=""/> */}
+              <video autoPlay muted loop id="myVideo2">
+                <source className="bigDeal col-md-9" src={require("./img/textDummy.mov")} type="video/mp4"/> Your browser does not support HTML5 video.
+              </video>
 
             <div className="bigDealText col-md-4">
 
@@ -107,7 +111,7 @@ class LandingManager extends React.Component {
     <div className="story">
       <div className="bg"></div>
       {/* <!-- <img className="bigDeal col-md-6" src="../img/mac.png" alt=""> --> */}
-      <div className="float-left">
+      <div className="float-right">
 
         <h2>How many pictures do you have?!</h2>
         <p>...Per an Info Trends study, more than 3.9 TRILLION photos were captured and stored on hard drives in 2017, and that
@@ -126,9 +130,6 @@ class LandingManager extends React.Component {
 
   <footer className="footer">
     <p>Posted by: The good people who brought you Writer's Block</p>
-    <p>Contact information:
-      <a href="mailto:someone@example.com">
-        someone@example.com</a>.</p>
   </footer>
 </div>
 

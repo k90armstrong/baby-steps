@@ -9,6 +9,18 @@
   z-index: -1;
 }
 
+#myVideo1 {
+  z-index: 100;
+  width: 55%;
+  margin-top: 26px;
+}
+
+#myVideo2 {
+  z-index: 100;
+  width: 55%;
+  margin-top: 26px;
+}
+
 /* Add some content at the bottom of the video/page */
 .content {
   position: fixed;
@@ -54,7 +66,7 @@
 }
 
 .largBaby2 {
-  margin-top: -41px;
+  margin-top: -17px;
 }
 
 .babyStepsWords {
@@ -70,7 +82,7 @@
   /* border:7px solid rgb(190, 252, 238); */
   width: 56% !important;
   padding: 0px !important;
-  margin-top: -158px;
+  margin-top: -211px;
 }
 
 .bigDeal2 {
@@ -97,7 +109,7 @@
   margin-top: 12px;
   margin-bottom: 31px;
   /* margin-left: 111px; */
-  width: 70%;
+  width: 45%;
 }
 
 .overFlow {
@@ -107,8 +119,9 @@
 .footer {
   background-color: white !important;
   z-index: 40;
+  margin-top: 0px;
   /* background-color: white; */
-  height: 62px;
+  /* height: 62px; */
 }
 
 /* PARALLAX STUFF */
@@ -212,7 +225,7 @@ h2 {
 }
 
 #second2 {
-  background: url("../img/Remington-7.jpg") 50% 0 no-repeat fixed;
+  background: url("../img/babySteps1.png") 50% 0 no-repeat fixed;
   /* background-color: black; */
   background-size: cover;
   /* color: white; */
@@ -224,7 +237,7 @@ h2 {
 }
 
 #second {
-  background: url("../img/white2.jpg") 50% 0 no-repeat fixed;
+  background: url("../img/babySteps4.png") 50% 0 no-repeat fixed;
   /* background-color: black; */
   background-size: cover;
   /* color: white; */
@@ -286,9 +299,12 @@ h2 {
 
 .story .float-left,
 .story .float-right {
-  padding: 100px 0 0 0;
+  /* padding: 100px 0 0 0; */
   position: relative;
-  width: 350px;
+  width: 393px;
+  background-color: white;
+  margin-top: 100px;
+  padding: 18px;
 }
 
 .giveMeSpace {
