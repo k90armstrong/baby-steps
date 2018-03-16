@@ -175,7 +175,7 @@ handleChildClick = (child)=>{
           accountClicked={()=>this.props.history.push('/app/myaccount')}
           logoutSuccess={this.props.loadedUser}
         />
-        <div>
+        <div style={{ display: 'flex' }}>
           {this.state.families.map((family, index)=>{
             return(
               <FamilyCard
