@@ -352,8 +352,9 @@ app.get("/api/child/:id", function(req, res) {
       },
       include: [
         db.Image, 
-        {model: db.Event, 
-          include: [db.Image]
+        {model: db.Event,
+        order: [[{model: db.Event}, 'date', 'DESC']],
+        include: [db.Image]
         }
       ]
     }).then(function(dbChild) {

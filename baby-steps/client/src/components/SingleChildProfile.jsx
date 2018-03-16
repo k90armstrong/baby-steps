@@ -20,6 +20,38 @@ const smallYep = {
   height: "100px"
 }
 
+const canvasPopAPIKey = "0e524556d32c94abbef0d0b058c58a1c";
+const getCanvasUrl = (imageUrl) => {
+	const printableUrl = "https://store.canvaspop.com/api/pull?image_url=" + imageUrl + "&access_key=" + canvasPopAPIKey;
+	return printableUrl;
+}
+
+const timelineIcons = [
+	"fas fa-child", 
+	"fas fa-tree", 
+	"fas fa-truck", 
+	"fas fa-car", 
+	"fas fa-trophy",
+	"fas fa-phone",
+	"fas fa-puzzle-piece",
+	"fas fa-baseball-ball",
+	"fas fa-baseball",
+	"fas fa-basketball-ball",
+	"fas fa-bicycle",
+	"fas fa-bug",
+	"fas fa-bus",
+	"fas fa-camera",
+	"fas fa-fighter-jet",
+	"fas fa-futbol",
+	"fas fa-qq",
+	"fas fa-rocket"
+]
+
+const getIcon = () => {
+	let index = Math.floor((Math.random() * timelineIcons.length)) + 1;
+	return timelineIcons[index]
+}
+
 
 class SingleChildProfile extends React.Component {
   constructor(props) {
@@ -28,20 +60,6 @@ class SingleChildProfile extends React.Component {
 	}
 	handleAddEvent=()=>{
 		
-	}
-
-	printButton = (child) => {
-		if (!child || !child.Images ||  child.Images.length < 1) {
-			return null;
-		}
-
-		const canvasPopAPIKey = "0e524556d32c94abbef0d0b058c58a1c";
-		const imageUrl = child.Images[0].url;
-
-		const printableUrl = "https://store.canvaspop.com/api/pull?image_url=" + imageUrl + "&access_key=" + canvasPopAPIKey;
-	
-		return <a href={printableUrl} target="_blank"><button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
-		 data-target="">Print</button></a>
 	}
 
   render() {
@@ -110,10 +128,6 @@ class SingleChildProfile extends React.Component {
 				</div>
 			</div>
 		</div>
-
-		{this.printButton(this.props.child)}
-		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg btnColorSize" data-toggle="modal" data-target="">Share</button>
-
 	</div>
 
 
@@ -147,13 +161,22 @@ class SingleChildProfile extends React.Component {
 							return (
 								<TimelineEvent
 									title={event.title}
-									icon={<i />}
+									icon={<i style={{width:18, height: 18}} className={getIcon()}/>}
 									iconColor="#6fba1c"
 									createdAt={moment(event.date).format("MMM Do YY")}
+									titleStyle={{fontWeight: "bold", fontSize: 18}}
+									subtitleStyle={{fontWeight: "bold", fontSize: 18}}
+									container={'card'}
+									cardHeaderStyle={{backgroundColor: "#00BCD4", color: "white"}}
+									createdAtStyle={{fontWeight: "bold", fontSize: 18}}
 								>
 									<div style={{ display: 'flex' }}>
 										<img style={{ height: '300px', width: 'auto', margin: 10 }} src={event.Images[0] ? event.Images[0].url : ''}/>
-										<p style={{ margin: 10, fontSize: 20 }}>{event.story}</p>
+										<div style={{display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between'}}>
+											<p style={{ margin: 10, fontSize: 20 }}>{event.story}</p>
+											<a href={getCanvasUrl(event.Images[0] ? event.Images[0].url : '')} target="_blank"><button id="" type="button" className="btn btn-default big-btn btn-info btn-lg" data-toggle="modal"
+		 									data-target="">Print!</button></a>
+										 </div>
 									</div>
 								</TimelineEvent>
 							);

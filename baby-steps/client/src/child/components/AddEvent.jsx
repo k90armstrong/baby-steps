@@ -52,44 +52,52 @@ class AddEvent extends React.Component {
         <div>
           {this.props.open &&
             <div>
-              <div className={'modal'} style={{ width: '90%' }}>
+              <div className={'modal'} style={{ width: '70%', height: 340 }}>
                 <Paper>
                   <div className={'modalBody'}>
                     <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Create Events and Save Memories</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                      <TextField
-                        hintText="First Food"
-                        type={"text"}
-                        onChange={this.handleChange}
-                        floatingLabelText={"title"}
-                         name={"title"}
-                        style={{ margin: 5 }}
-                      />
-                      <TextField
-                        hintText="Pudding"
-                        type={"text"}
-                        onChange={this.handleChange}
-                        floatingLabelText={"description"}
-                        name={"description"}
-                        style={{ margin: 5 }}                        
-                      />
-                      <TextField
-                        hintText="loving vanilla pudding"
-                        type={"text"}
-                        onChange={this.handleChange}
-                        floatingLabelText={"Story"}
-                        name={"story"}
-                        style={{ margin: 5 }}                        
-                      />
-                      
-                      
-                      
-                      <DatePicker 
-                        hintText="date" 
-                        openToYearSelection={true} 
-                        onChange={this.handleDateChanged}
-                      />
-                      { <input className='filepond' type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/> }
+                      <div style={{ display: 'flex', flexDirection: 'column', width: '30%', padding: 10}}>
+                        <TextField
+                          hintText="First Food"
+                          type={"text"}
+                          onChange={this.handleChange}
+                          floatingLabelText={"title"}
+                          name={"title"}
+                          fullWidth
+                          style={{ margin: 5 }}
+                        />
+                        <TextField
+                          hintText="Pudding"
+                          type={"text"}
+                          onChange={this.handleChange}
+                          floatingLabelText={"description"}
+                          name={"description"}
+                          fullWidth                          
+                          style={{ margin: 5 }}                        
+                        />
+                         <DatePicker 
+                          hintText="date" 
+                          openToYearSelection={true} 
+                          fullWidth                          
+                          onChange={this.handleDateChanged}
+                        />
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', width: '70%', padding: 10}}>
+                        <TextField
+                            hintText="loving vanilla pudding"
+                            type={"text"}
+                            onChange={this.handleChange}
+                            floatingLabelText={"Story"}
+                            name={"story"}
+                            fullWidth
+                            style={{ margin: 5 }}    
+                            multiLine={true}
+                            rows={3}
+                          />
+                        <input className='filepond' id="eventFile" type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/>
+                        <label for="eventFile">Add Picture!</label>
+                      </div>
                     </div>
                     <div className={'actions'}>
                       <FlatButton 

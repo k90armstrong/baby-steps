@@ -365,6 +365,13 @@ img.avatar {
 
 .container {
   padding: 16px;
+  font-family: 'Poiret One', cursive;
+  font-family: 'Sanchez', serif;
+}
+
+p {
+  font-family: 'Poiret One', cursive;
+  font-family: 'Sanchez', serif;
 }
 
 span.psw {
