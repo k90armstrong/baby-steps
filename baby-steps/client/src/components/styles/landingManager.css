@@ -76,6 +76,7 @@ html {
 .babyStepsWords {
   font-size: 95px;
   font-family: "Homemade Apple", cursive;
+  text-shadow: 1px 1px black;
 }
 
 .bigDeal {
@@ -542,6 +543,3 @@ body {
   /* overflow-x: hidden; */
 }
 
-.loginContainer {
-  margin-top: -103px;
-}

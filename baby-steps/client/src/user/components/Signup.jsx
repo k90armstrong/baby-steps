@@ -75,7 +75,7 @@ class Signup extends React.Component {
     render() {
 			return (
 				<div className={"loginContainer"}>
-					<h1>Baby Steps Login<span><svg version="1.1" width="25" height="25" x="0px" y="0px"
+					<h1>Baby Steps Signup<span><svg version="1.1" width="25" height="25" x="0px" y="0px"
 						viewBox="0 0 424.184 424.184" >
 						<path d={ICONS.LOGO1}/>
 						<path d={ICONS.LOGO2}/>

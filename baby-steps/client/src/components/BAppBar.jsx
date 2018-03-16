@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { loadedUser } from '../user/actions';
 import { user } from '../user/reducers';
 import UserInfoButton from '../user/components/UserInfoButton';
+import BDrawer from './BDrawer';
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -30,7 +31,9 @@ const Login = () => {
 class BAppBar extends React.Component {
   constructor() {
     super();
-
+    this.state={
+      drawerOpen: false
+    }
     this.logout = this.logout.bind(this);
     this.handleLogoutResponse = this.handleLogoutResponse.bind(this);
   }
@@ -56,6 +59,10 @@ class BAppBar extends React.Component {
 
   }
 
+  toggleDrawer = () => {
+    this.setState({drawerOpen: !this.state.drawerOpen})
+  } 
+
 
 
   render () {
@@ -72,7 +79,13 @@ class BAppBar extends React.Component {
         title={<Link style={{ textDecoration: 'none', color: 'white' }} to='/'>Baby Steps</Link>}
         // iconClassNameRight={"fab fa-accessible-icon"}
         iconElementRight={rightElement}
-      />
+        onLeftIconButtonClick={this.toggleDrawer}
+      >
+        <BDrawer
+          open={this.state.drawerOpen}
+          handleClose={this.toggleDrawer}
+        />
+      </AppBar>
     );
   }
 }

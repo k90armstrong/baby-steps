@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BAppBarLanding from './BAppBarLanding';
+import BAppBar from './BAppBar';
 import './styles/bootstrap.3.3.7.css'
 import './styles/landingManager.css'
 
@@ -15,7 +15,7 @@ class LandingManager extends React.Component {
   render() {
     return (
       <div>
-        <BAppBarLanding />
+        <BAppBar />
 
  <div className="container">
      <video autoPlay muted loop id="myVideo">
