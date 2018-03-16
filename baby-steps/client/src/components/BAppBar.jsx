@@ -43,8 +43,15 @@ class BAppBar extends React.Component {
   render () {
     return (
       <AppBar
-        title={this.props.account ? this.props.account.firstname : ''}
-        // iconClassNameRight={"fab fa-accessible-icon"}
+        title={this.props.account ? this.props.account.firstname : ''} 
+        iconElementLeft={
+          <div>
+          <FlatButton label="Go Back" href=""/>
+          {/* <FlatButton label="Signup" href="/signup"/> */}
+          
+        </div>
+        }
+       // iconClassNameRight={"fab fa-accessible-icon"}
         iconElementRight={<UserInfoButton user={this.props.account} accountClicked={this.props.accountClicked} logoutClicked={this.logout} />}
       />
     );
