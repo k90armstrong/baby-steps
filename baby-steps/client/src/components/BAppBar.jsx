@@ -1,10 +1,10 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import { api } from '../api';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadedUser } from '../user/actions';
 import { user } from '../user/reducers';
+import { Link } from 'react-router-dom';
 import UserInfoButton from '../user/components/UserInfoButton';
 import BDrawer from './BDrawer';
 
@@ -12,7 +12,6 @@ import BDrawer from './BDrawer';
  * A simple example of `AppBar` with an icon on the right.
  * By default, the left icon is a navigation-menu.
  */
-
 const linkStyle = {
   color: 'white',
   textDecoration: 'none',
@@ -42,7 +41,7 @@ class BAppBar extends React.Component {
   }
 
   loadUser() {
-    api.user.loadUser(this.props.loadedUser, ()=>{});
+    api.user.loadUser(this.props.loadedUser);
   }
 
   logout() {
