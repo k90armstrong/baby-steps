@@ -65,10 +65,15 @@ class FamilyCard extends React.Component {
     const children = this.state.family.Children.map(child =>{
       return(
         <Chip
-        style={{margin:7}}
-        onClick={()=>this.props.handleChildClick(child)}
+          style={{margin:7, alignContent: 'center'}}
+          onClick={()=>this.props.handleChildClick(child)}
         >
-          <Avatar src={child.Images[0].url} /> 
+          {child.gender.toLowerCase() === 'male' &&
+            <i style={{width:20, height: 20, marginRight: 10}} className="fas fa-mars"></i>
+          }
+          {child.gender.toLowerCase() !== 'male' &&
+            <i style={{width:20, height: 20, marginRight: 10}} className="fas fa-venus"></i>
+          }
           {child.firstname}
       </Chip>
       );
@@ -82,16 +87,16 @@ class FamilyCard extends React.Component {
         <Paper>
           
           {this.state.family && 
-            <div>
+            <div style={{position: 'relative'}}>
             <Card>
             
 
-            <div>{this.state.family.name} Family</div>
+            <div style={{position: 'absolute', left: 10, zIndex: 15, color: 'white', top: 10, fontFamily: 'Roboto Mono',  textShadow: '1px 1px #000', fontSize: 30}}>{this.state.family.name} Family</div>
             
             
               {/* <IconButton><MoreVertIcon /></IconButton> */}
               <CardMedia>
-                <img src={this.state.family.Images[0].url} style={{height: 300}} />
+                <img src={this.state.family.Images[0].url}/>
               </CardMedia>
               </Card>
               <IconMenu

@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 // Canvas pop API variables start
 var canvasEndpoint = "https://store.canvaspop.com";
 var pushEndPoint = canvasEndpoint + "/api/push/image";
+
 var loaderEndPoint = canvasEndpoint + "/loader/";
 // Canvas pop API variables end
 
@@ -52,7 +53,7 @@ app.post('/api/photo', function(req, res) {
 app.post('/api/photoPrint', function(req, res) {
   console.log("photoPrint API call start");
   console.log(req.body.fileName);
-  doPush(req, function(responsePush) {
+  doPull(req, function(responsePush) {
     var url = loaderEndPoint + imageToken;
     res.send(url);
   });
@@ -86,7 +87,7 @@ var doPush = function(req, callback) {
   },
   generateFormData = function(imagePath) {
     var iPath = imagePath,
-      staticBasePath = "./uploads/",
+      staticBasePath = "./upl",
       fileLoc = path.resolve(__dirname, staticBasePath, iPath);
     console.log("fileLoc" + fileLoc);
     return {

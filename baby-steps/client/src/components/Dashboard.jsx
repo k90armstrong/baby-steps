@@ -191,7 +191,7 @@ handleChildClick = (child)=>{
         </div>
         <div>
               {/* <FlatButton  */}
-              <div style={{ position:"absolute",top:100,left:500,width:300,height:90}}>
+              <div style={{ position:"fixed",bottom:10,right:10,width:71,height:71}}>
               
               
   

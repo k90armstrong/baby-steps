@@ -58,7 +58,7 @@ class AddChild extends React.Component {
               <div className={'modal'} style={{ width: '90%' }}>
                 <Paper>
                   <div className={'modalBody'}>
-                    <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Create Family and Save Memories</div>
+                    <div style={{ fontSize: 18, fontWeight: 100,opacity: '0.6' }}>Create Child and Save Memories</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                       <TextField
                         hintText="Sam"
@@ -112,8 +112,10 @@ class AddChild extends React.Component {
                         hintText="Birthdate" 
                         openToYearSelection={true} 
                         onChange={this.handleDateChanged}
+                        textFieldStyle={{height: 77}}
                       />
-                      <input className='filepond' type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/>
+                      <input className='filepond' name="file" id="file" type='file' onChange={this.handleImageUpload} style={{marginTop:'40px'}}/>
+                      <label for="file">Add a picture!</label>
                     </div>
                     <div className={'actions'}>
                       <FlatButton 

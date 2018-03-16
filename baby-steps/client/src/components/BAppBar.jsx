@@ -47,7 +47,6 @@ class BAppBar extends React.Component {
         iconElementLeft={
           <div>
           <FlatButton label="Go Back" href=""/>
-          {/* <FlatButton label="Signup" href="/signup"/> */}
           
         </div>
         }

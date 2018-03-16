@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BAppBar from './BAppBar';
-import './styles/bootstrap.3.3.7.css'
-import './styles/singleChildProfile.css'
+import Event from '../child/components/Event';
+import styles from '../components/styles/bootstrap.3.3.7.css'
+import moment from 'moment';
+import style from '../components/styles/singleChildProfile.css';
+import {Timeline, TimelineEvent} from 'react-event-timeline'
 
 
 const imgYep = {
@@ -27,8 +30,35 @@ class SingleChildProfile extends React.Component {
 		
 	}
 
+	printButton = (child) => {
+		if (!child || !child.Images ||  child.Images.length < 1) {
+			return null;
+		}
+
+		const canvasPopAPIKey = "0e524556d32c94abbef0d0b058c58a1c";
+		const imageUrl = child.Images[0].url;
+
+		const printableUrl = "https://store.canvaspop.com/api/pull?image_url=" + imageUrl + "&access_key=" + canvasPopAPIKey;
+	
+		return <a href={printableUrl} target="_blank"><button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
+		 data-target="">Print</button></a>
+	}
+
   render() {
+		var end = moment();
+		var duration = moment.duration(end.diff(moment(this.props.child.birthdate)));
+			let age = duration.asMonths();
+			age = Math.floor(age);
+			let ageDisplay;
+			if (age > 24) {
+				age = duration.asYears();
+				ageDisplay = age + ' years';
+			} else {
+				ageDisplay = age + ' months';
+			}
     return (
+			
+
       <div>
 
        
@@ -81,8 +111,7 @@ class SingleChildProfile extends React.Component {
 			</div>
 		</div>
 
-		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg SharePrintBtn btnColorSize" data-toggle="modal"
-		 data-target="">Print</button>
+		{this.printButton(this.props.child)}
 		<button id="" type="button" className="btn btn-default big-btn btn-info btn-lg btnColorSize" data-toggle="modal" data-target="">Share</button>
 
 	</div>
@@ -90,21 +119,19 @@ class SingleChildProfile extends React.Component {
 
 	<div className="container">
 		{/* <!-- this is the childs profile --> */}
-		<div className="container aboutWidth">
+		<div style={{width: '100%'}} className="container aboutWidth">
 			<div className="col col-md-2" style={grayLord}>
 				<div>
 					<div className="card">
-						<h1 id="kidsName">Name</h1>
-						<div className="fakeimg" style={smallYep}>Image</div>
-						<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+						<h1 id="kidsName">{this.props.child.firstname}</h1>
+						<div className="fakeimg">
+							<img src={this.props.child.Images ? this.props.child.Images[0].url : ''}/>
+						</div>
 					</div>
 					<div className="card">
-						<span>Weight: </span>
-						<span id="weight"></span>
-						<span>Length: </span>
-						<span id="length"></span>
-						<span>Birthday: </span>
-						<span id="birthday"></span>
+						<div>Weight: {this.props.child.weight}</div>
+						<div>Length: {this.props.child.height}</div>
+						<div>Age: {ageDisplay}</div>
 					</div>
 				</div>
 			</div>
@@ -112,11 +139,27 @@ class SingleChildProfile extends React.Component {
 
 			{/* <!-- this is the timeline --> */}
 			<div className="col col-md-9" style={grayLord}>
-				<div className="container">
+				<div style={{ width: '100%' }} className="container">
 
-					<section id="cd-timeline" className="cd-container containerTimeline">
 						{/* <!-- ALL TIMELINE STUFF GETS ADDED HERE DYNAMICALLY --> */}
-					</section>
+						<Timeline>
+						{this.props.child.Events && this.props.child.Events.map(event=>{
+							return (
+								<TimelineEvent
+									title={event.title}
+									icon={<i />}
+									iconColor="#6fba1c"
+									createdAt={moment(event.date).format("MMM Do YY")}
+								>
+									<div style={{ display: 'flex' }}>
+										<img style={{ height: '300px', width: 'auto', margin: 10 }} src={event.Images[0] ? event.Images[0].url : ''}/>
+										<p style={{ margin: 10, fontSize: 20 }}>{event.story}</p>
+									</div>
+								</TimelineEvent>
+							);
+							})}
+						</Timeline>
+						
 					{/* <!-- cd-timeline --> */}
 				</div>
 			</div>
